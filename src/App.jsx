@@ -9,8 +9,8 @@ export default function App() {
     <Routes>
       <Route element={<SiteLayout />}>
         <Route path="/" element={<HomePage />} />
-        <Route path="/app" element={<ChatbotPage />} />
       </Route>
+      <Route path="/app" element={<ChatbotPage />} />
       <Route path="*" element={<Navigate replace to="/" />} />
     </Routes>
   );
