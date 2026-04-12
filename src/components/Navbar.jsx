@@ -2,7 +2,12 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 
-const navItems = ["Platform", "Developers", "Resources", "Company"];
+const navItems = [
+  { label: "Platform", to: "/platform" },
+  { label: "Developers", to: "/developers" },
+  { label: "Resources", to: "/resources" },
+  { label: "Share", to: "/share" },
+];
 
 const navLinkClassName =
   "inline-flex items-center justify-center rounded-full px-[18px] py-[10px] text-[12px] font-semibold uppercase tracking-[0.2em] text-white/72 transition duration-200 hover:bg-[#ff78c8]/10 hover:text-white";
@@ -62,9 +67,9 @@ export default function Navbar() {
 
           <nav className="hidden items-center gap-[8px] lg:flex">
             {navItems.map((item) => (
-              <button key={item} type="button" className={navLinkClassName}>
-                {item}
-              </button>
+              <Link key={item.to} to={item.to} className={navLinkClassName}>
+                {item.label}
+              </Link>
             ))}
           </nav>
 
@@ -117,13 +122,14 @@ export default function Navbar() {
 
             <div className="flex flex-col gap-[8px]">
               {navItems.map((item) => (
-                <button
-                  key={item}
-                  type="button"
+                <Link
+                  key={item.to}
+                  to={item.to}
                   className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-[16px] py-[14px] text-[13px] font-semibold uppercase tracking-[0.18em] text-white/76 transition duration-200 hover:border-[#ff78c8]/35 hover:bg-[#ff78c8]/10 hover:text-white"
+                  onClick={() => setIsDrawerOpen(false)}
                 >
-                  {item}
-                </button>
+                  {item.label}
+                </Link>
               ))}
             </div>
 
