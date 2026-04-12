@@ -1,0 +1,145 @@
+:root {
+  /* Brand */
+  --color-brand-primary: #ff78c8;
+  --color-brand-primary-hover: #ff99db;
+  --color-brand-primary-foreground: #190410;
+  --color-brand-primary-foreground-strong: #17030f;
+  --color-brand-secondary: #7836ff;
+  --color-brand-tertiary: #7c1456;
+  --color-brand-accent: #ffc7ea;
+  --color-brand-accent-soft: #ffb2e0;
+  --color-brand-accent-strong: #ff9ad7;
+
+  /* Feedback */
+  --color-success: #6effa8;
+  --color-info: #86d4ff;
+  --color-info-soft: #9fd9ff;
+  --color-warning: #ffd5a4;
+  --color-danger: #ff6b8a;
+
+  /* Text */
+  --color-text-primary: #ffffff;
+  --color-text-on-brand: var(--color-brand-primary-foreground);
+  --color-text-on-brand-strong: var(--color-brand-primary-foreground-strong);
+
+  /* Surfaces */
+  --color-surface-canvas: #060105;
+  --color-surface-base: #050205;
+  --color-surface-elevated: #0a0208;
+  --color-surface-overlay: rgba(5, 2, 5, 0.92);
+  --color-surface-overlay-strong: rgba(10, 2, 8, 0.94);
+  --color-surface-panel: rgba(5, 2, 5, 0.96);
+  --color-surface-community-card: rgba(28, 8, 22, 0.8);
+  --color-surface-community-card-strong: rgba(34, 10, 26, 0.88);
+  --color-surface-community-code: rgba(22, 10, 19, 0.92);
+  --color-surface-glass-subtle: rgba(255, 255, 255, 0.03);
+  --color-surface-glass-muted: rgba(255, 255, 255, 0.04);
+  --color-surface-glass-strong: rgba(255, 255, 255, 0.05);
+
+  --color-surface-contrast-canvas: #17171a;
+  --color-surface-contrast-sidebar: #1c1c1f;
+  --color-surface-contrast-panel: #202025;
+  --color-surface-contrast-muted: #232327;
+  --color-surface-contrast-button: #252529;
+  --color-surface-contrast-input: #2a2a2f;
+  --color-surface-contrast-bubble: #2f2f34;
+  --color-surface-contrast-accent: #3a3a40;
+  --color-surface-contrast-action: #3b3b43;
+  --color-surface-contrast-action-hover: #474751;
+
+  /* Borders and fills */
+  --color-border-subtle: rgba(255, 255, 255, 0.1);
+  --color-border-muted: rgba(255, 255, 255, 0.08);
+  --color-border-brand: rgba(255, 120, 200, 0.35);
+  --color-border-brand-soft: rgba(255, 120, 200, 0.3);
+  --color-border-brand-subtle: rgba(255, 120, 200, 0.2);
+  --color-border-brand-faint: rgba(255, 120, 200, 0.18);
+  --color-fill-brand-soft: rgba(255, 120, 200, 0.1);
+  --color-fill-brand-muted: rgba(255, 120, 200, 0.08);
+  --color-fill-brand-faint: rgba(255, 120, 200, 0.06);
+  --color-focus-ring-brand: rgba(255, 120, 200, 0.4);
+  --color-selection-brand: rgba(255, 120, 200, 0.35);
+
+  /* Gradient palette */
+  --color-gradient-start: #060105;
+  --color-gradient-end: #200318;
+  --color-brand-primary-rgb: 255, 120, 200;
+  --color-brand-secondary-rgb: 120, 54, 255;
+  --color-brand-tertiary-rgb: 124, 20, 86;
+  --color-brand-accent-rgb: 255, 194, 233;
+  --color-brand-light-rgb: 255, 222, 242;
+  --color-brand-pointer-rgb: 255, 166, 223;
+  --color-brand-shadow-rgb: 70, 8, 51;
+  --color-glow-warm-rgb: 255, 158, 76;
+  --color-glow-cool-rgb: 168, 188, 255;
+  --color-glow-info-rgb: 90, 142, 255;
+  --color-glow-accent-rgb: 255, 175, 228;
+  --color-overlay-rgb: 0, 0, 0;
+  --color-overlay-brand-soft-rgb: 15, 2, 11;
+  --color-overlay-brand-rgb: 52, 6, 39;
+
+  /* Reusable gradients */
+  --gradient-home-overlay:
+    radial-gradient(circle at top, rgb(255 255 255 / 0.08), transparent 38%),
+    linear-gradient(
+      180deg,
+      rgb(var(--color-overlay-rgb) / 0.9) 0%,
+      rgb(var(--color-overlay-rgb) / 0.86) 18%,
+      rgb(var(--color-overlay-brand-soft-rgb) / 0.7) 46%,
+      rgb(var(--color-overlay-brand-rgb) / 0.3) 100%
+    );
+  --gradient-share-overlay:
+    radial-gradient(circle at top, rgb(255 255 255 / 0.08), transparent 34%),
+    linear-gradient(
+      180deg,
+      rgb(18 3 14 / 0.8) 0%,
+      rgb(28 6 21 / 0.7) 24%,
+      rgb(52 10 38 / 0.48) 54%,
+      rgb(88 20 67 / 0.24) 100%
+    );
+  --gradient-profile-banner: linear-gradient(
+    135deg,
+    rgb(var(--color-brand-primary-rgb) / 0.22),
+    rgb(var(--color-brand-secondary-rgb) / 0.18) 48%,
+    rgb(88 192 255 / 0.12)
+  );
+  --gradient-footer-decoration:
+    radial-gradient(circle at top left, rgb(var(--color-brand-primary-rgb) / 0.14), transparent 36%),
+    repeating-linear-gradient(
+      -32deg,
+      transparent 0 28px,
+      rgb(var(--color-brand-primary-rgb) / 0.1) 28px 32px
+    );
+  --gradient-chat-footer-fade: linear-gradient(
+    180deg,
+    rgb(23 23 26 / 0) 0%,
+    rgb(23 23 26 / 0.84) 22%,
+    rgb(23 23 26 / 1) 100%
+  );
+
+  /* Avatar gradients */
+  --gradient-avatar-featured: linear-gradient(
+    135deg,
+    rgb(var(--color-brand-primary-rgb) / 0.96),
+    rgb(131 59 255 / 0.8) 58%,
+    rgb(97 214 255 / 0.72)
+  );
+  --gradient-avatar-info: linear-gradient(
+    135deg,
+    rgb(110 180 255 / 0.96),
+    rgb(72 109 255 / 0.8) 58%,
+    rgb(166 226 255 / 0.6)
+  );
+  --gradient-avatar-warning: linear-gradient(
+    135deg,
+    rgb(255 174 96 / 0.96),
+    rgb(var(--color-brand-primary-rgb) / 0.78) 58%,
+    rgb(255 232 176 / 0.58)
+  );
+  --gradient-avatar-success: linear-gradient(
+    135deg,
+    rgb(90 231 191 / 0.96),
+    rgb(55 145 255 / 0.78) 58%,
+    rgb(185 244 255 / 0.56)
+  );
+}
