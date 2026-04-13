@@ -46,11 +46,11 @@ export const discussionThreads = [
     sectionLabel: "General Discussion",
     title: "How should a public AI thread feel inside a real product?",
     summary:
-      "The thread preview keeps the user prompt clear, the AI answer nested underneath it, and the handoff into the chatbot obvious.",
+      "The thread preview keeps the user prompt clear, the AI answer nested underneath it, and the handoff into chat obvious.",
     overview: ["Community", "Updated 12 min ago", "Open to everyone"],
     activity: ["12.6k views", "118 replies", "410 continued in chat"],
     footerNote:
-      "Open the chatbot to turn this public answer into a private working thread.",
+      "Open chat to turn this public answer into a private working thread.",
     messages: [
       {
         id: "layout-user",
@@ -105,7 +105,7 @@ export const discussionThreads = [
     overview: ["Code Parser", "Updated 34 min ago", "Public answer"],
     activity: ["8.4k reads", "1.2k copies", "438 saves"],
     footerNote:
-      "Continue this thread in the chatbot if you want to refine the parser or expand the snippet.",
+      "Continue this thread in chat if you want to refine the parser or expand the snippet.",
     messages: [
       {
         id: "code-user",
@@ -164,7 +164,7 @@ function tokenizeLine(line) {
     overview: ["UI Detail", "Updated 2 hr ago", "Visible to everyone"],
     activity: ["6.1k views", "392 shares", "1.4k likes"],
     footerNote:
-      "Take the thread into the chatbot if you want to iterate on states, hover details, or button behavior.",
+      "Take the thread into chat if you want to iterate on states, hover details, or button behavior.",
     messages: [
       {
         id: "motion-user",

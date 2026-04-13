@@ -25,14 +25,14 @@ const baseChatSessions = [
     messages: [
       {
         role: "user",
-        content: "helo",
+        content: "hello",
       },
       {
         role: "assistant",
         thoughtLabel: "Thought for 1 second",
         thought:
-          'We need to respond to "helo" which is likely a typo for "hello". Simple greeting response.',
-        content: "Hello! How can I help you today?",
+          "The user is opening the conversation. Reply briefly and invite the next request.",
+        content: "Hello. What would you like help with today?",
       },
     ],
   },
@@ -77,16 +77,16 @@ const baseChatSessions = [
 ];
 
 const starterPrompts = [
-  "Summarize a meeting transcript",
-  "Write a follow-up email",
-  "Build a one-week study plan",
+  "Summarize this meeting transcript",
+  "Draft a clear follow-up email",
+  "Build a 7-day calculus study plan",
 ];
 
 const controlButtonClassName =
-  "inline-flex items-center justify-center rounded-full border border-[color:var(--color-border-subtle)] bg-[var(--color-surface-contrast-button)] text-muted-foreground transition duration-200 hover:border-[color:var(--color-border-brand)] hover:text-foreground";
+  "inline-flex items-center justify-center rounded-full border border-[color:var(--color-border-muted)] bg-white/70 text-muted-foreground shadow-[0_10px_24px_rgba(53,14,36,0.06)] backdrop-blur-[18px] transition duration-200 hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-surface-contrast-button)] hover:text-foreground";
 
 const actionButtonClassName =
-  "inline-flex h-[32px] w-[32px] items-center justify-center rounded-full text-muted-foreground transition duration-200 hover:bg-[var(--color-surface-glass-muted)] hover:text-[var(--color-brand-primary)]";
+  "inline-flex h-[32px] w-[32px] items-center justify-center rounded-full text-muted-foreground transition duration-200 hover:bg-[var(--color-fill-brand-soft)] hover:text-[var(--color-brand-primary-foreground-strong)]";
 
 function groupSessionsByDate(sessions) {
   return sessions.reduce(
@@ -141,7 +141,7 @@ function buildSharedChatSession(sharedThread) {
 function ThreadComposer({ placeholder }) {
   return (
     <div className="mx-auto w-full max-w-[780px]">
-      <div className="rounded-[22px] border border-[color:var(--color-border-muted)] bg-[var(--color-surface-contrast-input)] px-[14px] py-[12px] shadow-[0_18px_50px_rgba(0,0,0,0.28)] md:rounded-[26px] md:px-[18px] md:py-[14px]">
+      <div className="rounded-[22px] border border-[color:var(--color-border-brand-subtle)] bg-white/80 px-[14px] py-[12px] shadow-[0_24px_70px_rgba(53,14,36,0.12)] backdrop-blur-[24px] md:rounded-[26px] md:px-[18px] md:py-[14px]">
         <label
           htmlFor="chat-message"
           className="block text-[13px] font-medium text-muted-foreground"
@@ -153,22 +153,22 @@ function ThreadComposer({ placeholder }) {
           id="chat-message"
           rows="2"
           className="mt-[8px] min-h-[52px] w-full resize-none bg-transparent text-[15px] leading-[1.55] text-foreground outline-none placeholder:text-muted-foreground md:min-h-[68px] md:text-[16px]"
-          placeholder="Type a message..."
+          placeholder="Ask QMee to draft, research, or plan..."
         />
 
         <div className="mt-[10px] flex items-center justify-between gap-[10px] max-[560px]:flex-col max-[560px]:items-stretch">
           <div className="flex flex-wrap gap-[8px]">
             <button
               type="button"
-              className="inline-flex min-h-[30px] items-center justify-center gap-[7px] rounded-full border border-[color:var(--color-border-brand)] px-[12px] py-[6px] text-[13px] font-medium text-[var(--color-brand-accent-soft)] transition duration-200 hover:bg-[var(--color-fill-brand-soft)]"
+              className="inline-flex min-h-[30px] items-center justify-center gap-[7px] rounded-full border border-[color:var(--color-border-brand-soft)] bg-[var(--color-fill-brand-faint)] px-[12px] py-[6px] text-[13px] font-medium text-[var(--color-brand-primary-foreground-strong)] transition duration-200 hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-fill-brand-soft)]"
             >
               <MessageSquareText className="h-[13px] w-[13px]" />
-              Deep Chat
+              Deep mode
             </button>
 
             <button
               type="button"
-              className="inline-flex min-h-[30px] items-center justify-center gap-[7px] rounded-full border border-[color:var(--color-border-brand)] px-[12px] py-[6px] text-[13px] font-medium text-[var(--color-brand-accent-soft)] transition duration-200 hover:bg-[var(--color-fill-brand-soft)]"
+              className="inline-flex min-h-[30px] items-center justify-center gap-[7px] rounded-full border border-[color:var(--color-border-brand-soft)] bg-[var(--color-fill-brand-faint)] px-[12px] py-[6px] text-[13px] font-medium text-[var(--color-brand-primary-foreground-strong)] transition duration-200 hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-fill-brand-soft)]"
             >
               <Search className="h-[13px] w-[13px]" />
               Search
@@ -186,7 +186,7 @@ function ThreadComposer({ placeholder }) {
 
             <button
               type="button"
-              className="inline-flex h-[36px] w-[36px] items-center justify-center rounded-full bg-[var(--color-surface-contrast-action-hover)] text-[var(--color-brand-accent-soft)] transition duration-200 hover:bg-[var(--color-brand-primary)] hover:text-[var(--color-text-on-brand)]"
+              className="inline-flex h-[36px] w-[36px] items-center justify-center rounded-full bg-[var(--color-brand-primary)] text-[var(--color-text-on-brand)] shadow-[0_14px_32px_rgba(255,120,200,0.26)] transition duration-200 hover:-translate-y-[1px] hover:bg-[var(--color-brand-primary-hover)] hover:shadow-[0_18px_36px_rgba(255,120,200,0.32)]"
               aria-label="Send message"
             >
               <ArrowUp className="h-[14px] w-[14px]" />
@@ -201,7 +201,7 @@ function ThreadComposer({ placeholder }) {
 function UserMessage({ content }) {
   return (
     <div className="ml-auto flex max-w-[420px] flex-col items-end">
-      <div className="rounded-full bg-[var(--color-surface-contrast-bubble)] px-[18px] py-[12px] text-[16px] font-medium text-foreground md:text-[17px]">
+      <div className="rounded-[24px] border border-[color:var(--color-border-brand-subtle)] bg-[var(--color-surface-contrast-bubble)] px-[18px] py-[12px] text-[16px] font-medium text-foreground shadow-[0_14px_30px_rgba(255,120,200,0.08)] md:text-[17px]">
         {content}
       </div>
 
@@ -337,7 +337,7 @@ function HistorySidebar({
       <button
         type="button"
         onClick={onNewChat}
-        className="mt-[22px] inline-flex min-h-[42px] items-center justify-center gap-[8px] rounded-full bg-[var(--color-surface-contrast-action)] px-[16px] py-[10px] text-[15px] font-medium text-foreground transition duration-200 hover:bg-[var(--color-surface-contrast-action-hover)]"
+        className="mt-[22px] inline-flex min-h-[42px] items-center justify-center gap-[8px] rounded-full border border-[color:var(--color-border-brand-soft)] bg-[var(--color-fill-brand-soft)] px-[16px] py-[10px] text-[15px] font-medium text-[var(--color-brand-primary-foreground-strong)] shadow-[0_14px_32px_rgba(255,120,200,0.08)] transition duration-200 hover:bg-[var(--color-fill-brand-muted)]"
       >
         <PencilLine className="h-[15px] w-[15px]" />
         New chat
@@ -363,7 +363,7 @@ function HistorySidebar({
                       className={cn(
                         "flex w-full items-center justify-between rounded-[16px] px-[12px] py-[11px] text-left text-[15px] font-medium transition duration-200",
                         isSelected
-                          ? "bg-[var(--color-surface-contrast-accent)] text-foreground"
+                          ? "bg-[var(--color-fill-brand-soft)] text-foreground"
                           : "text-muted-foreground hover:bg-[var(--color-surface-contrast-muted)]",
                       )}
                     >
@@ -465,7 +465,10 @@ export default function ChatbotPage() {
   };
 
   return (
-    <main className="min-h-screen w-full bg-[var(--color-surface-contrast-canvas)] text-foreground xl:h-screen xl:overflow-hidden">
+    <main
+      className="min-h-screen w-full text-foreground xl:h-screen xl:overflow-hidden"
+      style={{ background: "var(--gradient-chat-canvas)" }}
+    >
       <div className="grid min-h-screen w-full xl:h-full xl:grid-cols-[260px_minmax(0,1fr)]">
         <aside className="hidden border-r border-[color:var(--color-border-muted)] bg-[var(--color-surface-contrast-sidebar)] px-[14px] py-[18px] xl:flex xl:h-full xl:min-h-0 xl:flex-col">
           <HistorySidebar
@@ -498,11 +501,14 @@ export default function ChatbotPage() {
           </div>
         ) : null}
 
-        <section className="relative flex min-h-[100svh] flex-col bg-[var(--color-surface-contrast-canvas)] xl:h-full xl:min-h-0">
+        <section className="relative flex min-h-[100svh] flex-col xl:h-full xl:min-h-0">
           <header className="grid grid-cols-[40px_minmax(0,1fr)_40px] items-center px-[16px] py-[14px] md:px-[24px] md:py-[20px]">
             <button
               type="button"
-              className="inline-flex h-[36px] w-[36px] items-center justify-center rounded-full text-muted-foreground transition duration-200 hover:bg-[var(--color-surface-glass-muted)] hover:text-foreground xl:pointer-events-none xl:opacity-0"
+              className={cn(
+                controlButtonClassName,
+                "h-[36px] w-[36px] xl:pointer-events-none xl:opacity-0",
+              )}
               aria-label="Open history"
               onClick={() => setIsHistoryOpen(true)}
             >
@@ -511,13 +517,13 @@ export default function ChatbotPage() {
 
             <div className="min-w-0 text-center">
               <p className="m-0 truncate text-[15px] font-semibold text-foreground">
-                {selectedChat ? selectedChat.title : "New chat"}
+                {selectedChat ? selectedChat.title : "New thread"}
               </p>
             </div>
 
             <button
               type="button"
-              className="inline-flex h-[36px] w-[36px] items-center justify-center rounded-full text-muted-foreground transition duration-200 hover:bg-[var(--color-surface-glass-muted)] hover:text-foreground"
+              className={cn(controlButtonClassName, "h-[36px] w-[36px]")}
               aria-label="Share chat"
             >
               <Share2 className="h-[15px] w-[15px]" />
@@ -547,14 +553,14 @@ export default function ChatbotPage() {
               <div className="flex min-h-[80svh] items-center justify-center xl:min-h-0 xl:h-full">
                 <div className="w-full max-w-[760px] text-center">
                   <p className="text-[13px] font-medium uppercase tracking-[0.24em] text-[var(--color-brand-accent-soft)]">
-                    QMee AI
+                    QMee Workspace
                   </p>
                   <h1 className="mt-[14px] text-[44px] font-semibold tracking-[-0.05em] text-foreground max-[640px]:text-[34px]">
-                    How can I help?
+                    What do you want to work on?
                   </h1>
                   <p className="mx-auto mt-[14px] max-w-[560px] text-[16px] leading-[1.7] text-muted-foreground">
-                    Start a new thread for drafting, summarization, research,
-                    or planning.
+                    Start a thread for drafting, research, planning, or quick
+                    problem-solving.
                   </p>
 
                   <div className="mt-[22px] flex flex-wrap justify-center gap-[10px]">
@@ -578,9 +584,9 @@ export default function ChatbotPage() {
             style={{ background: "var(--gradient-chat-footer-fade)" }}
           >
             <div className="pointer-events-auto">
-              <ThreadComposer placeholder="Message QMee" />
+              <ThreadComposer placeholder="Message QMee AI" />
               <p className="mt-[8px] text-center text-[12px] text-muted-foreground opacity-60">
-                AI-generated, for reference only
+                AI can make mistakes. Verify important details.
               </p>
             </div>
           </div>

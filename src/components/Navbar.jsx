@@ -170,7 +170,7 @@ export default function Navbar() {
 
           <div className="hidden items-center gap-[10px] lg:flex">
             <Link to="/app" className={primaryCtaClassName}>
-              Open chatbot
+              Open chat
             </Link>
           </div>
 
@@ -233,7 +233,7 @@ export default function Navbar() {
               className={primaryCtaClassName}
               onClick={() => setIsDrawerOpen(false)}
             >
-              Open chatbot
+              Open chat
             </Link>
           </div>
         </div>

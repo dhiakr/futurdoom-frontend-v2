@@ -60,7 +60,7 @@ export default function HomePage() {
           <div className="w-full text-center">
             <div className="mx-auto flex max-w-[320px] items-center justify-center gap-[18px] text-muted-foreground">
               <span className="h-px flex-1 bg-gradient-to-r from-transparent to-border" />
-              <span className="text-[28px] leading-none text-[var(--color-brand-accent)]">
+              <span className="text-[28px] leading-none text-[var(--color-brand-primary)]">
                 QMee
               </span>
               <span className="h-px flex-1 bg-gradient-to-l from-transparent to-border" />
@@ -81,12 +81,13 @@ export default function HomePage() {
             </h1>
 
             <p className="mx-auto mt-[22px] max-w-[600px] text-[clamp(1rem,2.4vw,1.4rem)] font-medium leading-[1.7] text-muted-foreground">
-              QMee is a simple AI chatbot. Open the chat and start talking.
+              QMee is a focused AI workspace for drafting, research, and quick
+              problem-solving.
             </p>
 
             <div className="mt-[34px] flex items-center justify-center">
               <Link to="/app" className={primaryButtonClassName}>
-                Open chatbot
+                Open chat
                 <ArrowRight className="h-[18px] w-[18px]" />
               </Link>
             </div>

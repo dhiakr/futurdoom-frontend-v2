@@ -136,12 +136,12 @@ export default function CodePreview({
         className,
       )}
       style={{
-        backgroundColor: "var(--color-surface-community-code)",
+        backgroundColor: "var( --color-surface-base)",
       }}
     >
-      <div className="flex items-center justify-between gap-[12px] border-b border-[color:var(--color-border-muted)] bg-[var(--color-surface-glass-muted)] px-[16px] py-[14px]">
+      <div className="flex items-center justify-between gap-[12px] border-b border-[color:var(--color-border-muted)] bg-[var(--color-border-brand-faint)] px-[16px] py-[14px]">
         <div className="flex min-w-0 items-center gap-[12px]">
-          <span className="inline-flex h-[36px] w-[36px] items-center justify-center rounded-full border border-[color:var(--color-border-brand-faint)] bg-[var(--color-fill-brand-soft)] text-[var(--color-brand-accent)]">
+          <span className="inline-flex h-[36px] w-[36px] items-center justify-center rounded-full border border-[color:var(--color-border-brand-faint)] bg-[var(--color-surface-base)] text-[var(--color-brand-accent)]">
             <FileCode2 className="h-[16px] w-[16px]" />
           </span>
 

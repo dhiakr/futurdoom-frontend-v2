@@ -21,21 +21,21 @@ export default function Share() {
           className="absolute left-1/2 top-[8%] h-[220px] w-[52%] -translate-x-1/2 rounded-[999px] blur-[100px]"
           style={{
             background:
-              "radial-gradient(circle, rgb(var(--color-brand-primary-rgb) / 0.16) 0%, transparent 72%)",
+              "radial-gradient(circle, rgb(var(--color-brand-primary-rgb) / 0.2) 0%, transparent 72%)",
           }}
         />
         <div
           className="absolute right-[10%] top-[24%] h-[240px] w-[240px] rounded-full blur-[110px]"
           style={{
             background:
-              "radial-gradient(circle, rgb(var(--color-glow-info-rgb) / 0.14) 0%, transparent 72%)",
+              "radial-gradient(circle, rgb(var(--color-glow-info-rgb) / 0.16) 0%, transparent 72%)",
           }}
         />
         <div
           className="absolute left-[8%] top-[42%] h-[260px] w-[260px] rounded-full blur-[120px]"
           style={{
             background:
-              "radial-gradient(circle, rgb(var(--color-brand-accent-rgb) / 0.1) 0%, transparent 72%)",
+              "radial-gradient(circle, rgb(var(--color-brand-accent-rgb) / 0.12) 0%, transparent 72%)",
           }}
         />
       </div>
@@ -48,41 +48,26 @@ export default function Share() {
             </aside>
 
             <div className="relative z-10 space-y-[18px]">
-              <div
-                className="relative overflow-hidden rounded-[20px] px-[24px] py-[22px] shadow-[0_12px_40px_rgba(255,120,200,0.18)]"
-                style={{
-                  backgroundColor: "var(--color-brand-primary)",
-                  backgroundImage:
-                    "linear-gradient(180deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0) 55%)",
-                }}
-              >
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0"
-                  style={{
-                    background:
-                      "radial-gradient(circle at top right, rgb(255 255 255 / 0.16), transparent 32%), radial-gradient(circle at bottom left, rgb(255 255 255 / 0.06), transparent 38%)",
-                  }}
-                />
-
-                <div className="relative flex flex-wrap items-center justify-between gap-[12px]">
+              <div className="flex flex-wrap items-center justify-between gap-[12px] rounded-[20px] border border-[color:var(--color-border-brand-soft)] bg-[var(--color-fill-brand-soft)] px-[24px] py-[22px] shadow-[0_12px_32px_rgba(255,120,200,0.08)]">
+                <div className="flex flex-wrap items-center justify-between gap-[12px] w-full">
                   <div className="flex items-center gap-[12px]">
-                    <span className="inline-flex h-[38px] w-[38px] items-center justify-center rounded-full border border-black/10 bg-white/24 text-[var(--color-text-on-brand-strong)] shadow-[0_12px_24px_rgba(0,0,0,0.12)]">
+                    <span className="inline-flex h-[38px] w-[38px] items-center justify-center rounded-full border border-[color:var(--color-border-brand-subtle)] bg-white text-[var(--color-brand-primary-foreground-strong)] shadow-[0_8px_18px_rgba(255,120,200,0.08)]">
                       <MessageSquareText className="h-[16px] w-[16px]" />
                     </span>
 
                     <div>
-                      <p className="m-0 text-[12px] font-semibold uppercase tracking-[0.2em] text-[color:rgb(23_3_15/0.62)]">
-                        Discussion Board
+                      <p className="m-0 text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-primary-foreground-strong)] opacity-60">
+                        Community Threads
                       </p>
-                      <p className="m-0 mt-[4px] text-[15px] font-semibold text-[var(--color-text-on-brand-strong)]">
-                        Public threads anyone can read and continue.
+                      <p className="m-0 mt-[4px] text-[15px] font-semibold text-[var(--color-brand-primary-foreground-strong)]">
+                        Public threads people can read, save, and continue in
+                        chat.
                       </p>
                     </div>
                   </div>
 
-                  <div className="rounded-full border border-black/10 bg-white/22 px-[12px] py-[8px] text-[12px] font-semibold text-[var(--color-text-on-brand-strong)]">
-                    {discussionThreads.length} live threads
+                  <div className="rounded-full border border-[color:var(--color-border-brand-subtle)] bg-white/80 px-[12px] py-[8px] text-[12px] font-semibold text-[var(--color-brand-primary-foreground-strong)]">
+                    {discussionThreads.length} threads
                   </div>
                 </div>
               </div>
@@ -91,9 +76,8 @@ export default function Share() {
                 <DiscussionThreadCard key={thread.id} thread={thread} />
               ))}
             </div>
-            
-            <aside className="hidden lg:block relative z-20 lg:sticky lg:top-[118px] lg:self-start">
-            </aside>
+
+            <aside className="relative z-20 hidden lg:block lg:sticky lg:top-[118px] lg:self-start" />
           </div>
         </section>
       </main>

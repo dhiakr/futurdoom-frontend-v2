@@ -122,7 +122,7 @@ export default function Footer() {
                 to="/app"
                 className="text-[#ff78c8] no-underline transition duration-200 hover:text-[#ff99db]"
               >
-                Open Chatbot
+                Open Chat
               </Link>
               <a
                 href="tel:+3512055550142"
