@@ -58,12 +58,12 @@ export default function HomePage() {
       <main className="relative z-10 flex flex-1 items-center justify-center px-[24px] pb-[72px] pt-[34px] max-[640px]:px-[16px] max-[640px]:pb-[48px]">
         <section className="flex min-h-[calc(100vh-220px)] w-full max-w-[1040px] items-center justify-center">
           <div className="w-full text-center">
-            <div className="mx-auto flex max-w-[320px] items-center justify-center gap-[18px] text-white/44">
-              <span className="h-px flex-1 bg-gradient-to-r from-transparent to-white/28" />
+            <div className="mx-auto flex max-w-[320px] items-center justify-center gap-[18px] text-muted-foreground">
+              <span className="h-px flex-1 bg-gradient-to-r from-transparent to-border" />
               <span className="text-[28px] leading-none text-[var(--color-brand-accent)]">
                 QMee
               </span>
-              <span className="h-px flex-1 bg-gradient-to-l from-transparent to-white/28" />
+              <span className="h-px flex-1 bg-gradient-to-l from-transparent to-border" />
             </div>
 
             <div className="mx-auto mt-[20px] inline-flex items-center gap-[10px] px-[18px] py-[10px] ">
@@ -74,13 +74,13 @@ export default function HomePage() {
               />
             </div>
 
-            <h1 className="mx-auto mt-[28px] max-w-[720px] text-[clamp(3rem,8vw,5.6rem)] font-semibold leading-[0.94] tracking-[-0.06em] text-white">
+            <h1 className="mx-auto mt-[28px] max-w-[720px] text-[clamp(3rem,8vw,5.6rem)] font-semibold leading-[0.94] tracking-[-0.06em] text-foreground">
               AI for clear work,
               <br />
               built to move fast
             </h1>
 
-            <p className="mx-auto mt-[22px] max-w-[600px] text-[clamp(1rem,2.4vw,1.4rem)] font-medium leading-[1.7] text-white/68">
+            <p className="mx-auto mt-[22px] max-w-[600px] text-[clamp(1rem,2.4vw,1.4rem)] font-medium leading-[1.7] text-muted-foreground">
               QMee is a simple AI chatbot. Open the chat and start talking.
             </p>
 

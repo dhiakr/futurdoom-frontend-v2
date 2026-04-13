@@ -18,38 +18,38 @@
   --color-danger: #ff6b8a;
 
   /* Text */
-  --color-text-primary: #ffffff;
+  --color-text-primary: #111111;
   --color-text-on-brand: var(--color-brand-primary-foreground);
   --color-text-on-brand-strong: var(--color-brand-primary-foreground-strong);
 
   /* Surfaces */
-  --color-surface-canvas: #060105;
-  --color-surface-base: #050205;
-  --color-surface-elevated: #0a0208;
-  --color-surface-overlay: rgba(5, 2, 5, 0.92);
-  --color-surface-overlay-strong: rgba(10, 2, 8, 0.94);
-  --color-surface-panel: rgba(5, 2, 5, 0.96);
-  --color-surface-community-card: rgba(28, 8, 22, 0.8);
-  --color-surface-community-card-strong: rgba(34, 10, 26, 0.88);
-  --color-surface-community-code: rgba(22, 10, 19, 0.92);
-  --color-surface-glass-subtle: rgba(255, 255, 255, 0.03);
-  --color-surface-glass-muted: rgba(255, 255, 255, 0.04);
-  --color-surface-glass-strong: rgba(255, 255, 255, 0.05);
+  --color-surface-canvas: #fafafa;
+  --color-surface-base: #ffffff;
+  --color-surface-elevated: #ffffff;
+  --color-surface-overlay: rgba(250, 250, 250, 0.92);
+  --color-surface-overlay-strong: rgba(245, 245, 245, 0.94);
+  --color-surface-panel: rgba(255, 255, 255, 0.96);
+  --color-surface-community-card: rgba(255, 255, 255, 0.8);
+  --color-surface-community-card-strong: rgba(255, 255, 255, 0.96);
+  --color-surface-community-code: rgba(244, 244, 245, 0.92);
+  --color-surface-glass-subtle: rgba(0, 0, 0, 0.03);
+  --color-surface-glass-muted: rgba(0, 0, 0, 0.05);
+  --color-surface-glass-strong: rgba(0, 0, 0, 0.08);
 
-  --color-surface-contrast-canvas: #17171a;
-  --color-surface-contrast-sidebar: #1c1c1f;
-  --color-surface-contrast-panel: #202025;
-  --color-surface-contrast-muted: #232327;
-  --color-surface-contrast-button: #252529;
-  --color-surface-contrast-input: #2a2a2f;
-  --color-surface-contrast-bubble: #2f2f34;
-  --color-surface-contrast-accent: #3a3a40;
-  --color-surface-contrast-action: #3b3b43;
-  --color-surface-contrast-action-hover: #474751;
+  --color-surface-contrast-canvas: #f4f4f5;
+  --color-surface-contrast-sidebar: #f1f1f3;
+  --color-surface-contrast-panel: #ffffff;
+  --color-surface-contrast-muted: #e4e4e7;
+  --color-surface-contrast-button: #eef2f6;
+  --color-surface-contrast-input: #ffffff;
+  --color-surface-contrast-bubble: #f4f4f5;
+  --color-surface-contrast-accent: #e5e7eb;
+  --color-surface-contrast-action: #d1d5db;
+  --color-surface-contrast-action-hover: #9ca3af;
 
   /* Borders and fills */
-  --color-border-subtle: rgba(255, 255, 255, 0.1);
-  --color-border-muted: rgba(255, 255, 255, 0.08);
+  --color-border-subtle: rgba(0, 0, 0, 0.08);
+  --color-border-muted: rgba(0, 0, 0, 0.04);
   --color-border-brand: rgba(255, 120, 200, 0.35);
   --color-border-brand-soft: rgba(255, 120, 200, 0.3);
   --color-border-brand-subtle: rgba(255, 120, 200, 0.2);
@@ -61,26 +61,26 @@
   --color-selection-brand: rgba(255, 120, 200, 0.35);
 
   /* Gradient palette */
-  --color-gradient-start: #060105;
-  --color-gradient-end: #200318;
+  --color-gradient-start: #eaeef6;
+  --color-gradient-end: #fdf2f8;
   --color-brand-primary-rgb: 255, 120, 200;
   --color-brand-secondary-rgb: 120, 54, 255;
   --color-brand-tertiary-rgb: 124, 20, 86;
   --color-brand-accent-rgb: 255, 194, 233;
   --color-brand-light-rgb: 255, 222, 242;
   --color-brand-pointer-rgb: 255, 166, 223;
-  --color-brand-shadow-rgb: 70, 8, 51;
+  --color-brand-shadow-rgb: 255, 120, 200;
   --color-glow-warm-rgb: 255, 158, 76;
   --color-glow-cool-rgb: 168, 188, 255;
   --color-glow-info-rgb: 90, 142, 255;
   --color-glow-accent-rgb: 255, 175, 228;
-  --color-overlay-rgb: 0, 0, 0;
-  --color-overlay-brand-soft-rgb: 15, 2, 11;
-  --color-overlay-brand-rgb: 52, 6, 39;
+  --color-overlay-rgb: 255, 255, 255;
+  --color-overlay-brand-soft-rgb: 255, 238, 248;
+  --color-overlay-brand-rgb: 255, 220, 240;
 
   /* Reusable gradients */
   --gradient-home-overlay:
-    radial-gradient(circle at top, rgb(255 255 255 / 0.08), transparent 38%),
+    radial-gradient(circle at top, rgb(0 0 0 / 0.02), transparent 38%),
     linear-gradient(
       180deg,
       rgb(var(--color-overlay-rgb) / 0.9) 0%,
@@ -89,13 +89,13 @@
       rgb(var(--color-overlay-brand-rgb) / 0.3) 100%
     );
   --gradient-share-overlay:
-    radial-gradient(circle at top, rgb(255 255 255 / 0.08), transparent 34%),
+    radial-gradient(circle at top, rgb(0 0 0 / 0.03), transparent 34%),
     linear-gradient(
       180deg,
-      rgb(18 3 14 / 0.8) 0%,
-      rgb(28 6 21 / 0.7) 24%,
-      rgb(52 10 38 / 0.48) 54%,
-      rgb(88 20 67 / 0.24) 100%
+      rgb(255 255 255 / 0.8) 0%,
+      rgb(255 252 254 / 0.7) 24%,
+      rgb(255 240 248 / 0.48) 54%,
+      rgb(255 220 238 / 0.24) 100%
     );
   --gradient-profile-banner: linear-gradient(
     135deg,
@@ -112,9 +112,9 @@
     );
   --gradient-chat-footer-fade: linear-gradient(
     180deg,
-    rgb(23 23 26 / 0) 0%,
-    rgb(23 23 26 / 0.84) 22%,
-    rgb(23 23 26 / 1) 100%
+    rgb(255 255 255 / 0) 0%,
+    rgb(255 255 255 / 0.84) 22%,
+    rgb(255 255 255 / 1) 100%
   );
 
   /* Avatar gradients */

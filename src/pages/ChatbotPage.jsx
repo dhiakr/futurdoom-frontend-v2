@@ -83,10 +83,10 @@ const starterPrompts = [
 ];
 
 const controlButtonClassName =
-  "inline-flex items-center justify-center rounded-full border border-[color:var(--color-border-subtle)] bg-[var(--color-surface-contrast-button)] text-white/70 transition duration-200 hover:border-[color:var(--color-border-brand)] hover:text-white";
+  "inline-flex items-center justify-center rounded-full border border-[color:var(--color-border-subtle)] bg-[var(--color-surface-contrast-button)] text-muted-foreground transition duration-200 hover:border-[color:var(--color-border-brand)] hover:text-foreground";
 
 const actionButtonClassName =
-  "inline-flex h-[32px] w-[32px] items-center justify-center rounded-full text-white/42 transition duration-200 hover:bg-[var(--color-surface-glass-muted)] hover:text-[var(--color-brand-accent-soft)]";
+  "inline-flex h-[32px] w-[32px] items-center justify-center rounded-full text-muted-foreground transition duration-200 hover:bg-[var(--color-surface-glass-muted)] hover:text-[var(--color-brand-primary)]";
 
 function groupSessionsByDate(sessions) {
   return sessions.reduce(
@@ -144,7 +144,7 @@ function ThreadComposer({ placeholder }) {
       <div className="rounded-[22px] border border-[color:var(--color-border-muted)] bg-[var(--color-surface-contrast-input)] px-[14px] py-[12px] shadow-[0_18px_50px_rgba(0,0,0,0.28)] md:rounded-[26px] md:px-[18px] md:py-[14px]">
         <label
           htmlFor="chat-message"
-          className="block text-[13px] font-medium text-white/38"
+          className="block text-[13px] font-medium text-muted-foreground"
         >
           {placeholder}
         </label>
@@ -152,7 +152,7 @@ function ThreadComposer({ placeholder }) {
         <textarea
           id="chat-message"
           rows="2"
-          className="mt-[8px] min-h-[52px] w-full resize-none bg-transparent text-[15px] leading-[1.55] text-white outline-none placeholder:text-white/26 md:min-h-[68px] md:text-[16px]"
+          className="mt-[8px] min-h-[52px] w-full resize-none bg-transparent text-[15px] leading-[1.55] text-foreground outline-none placeholder:text-muted-foreground md:min-h-[68px] md:text-[16px]"
           placeholder="Type a message..."
         />
 
@@ -201,7 +201,7 @@ function ThreadComposer({ placeholder }) {
 function UserMessage({ content }) {
   return (
     <div className="ml-auto flex max-w-[420px] flex-col items-end">
-      <div className="rounded-full bg-[var(--color-surface-contrast-bubble)] px-[18px] py-[12px] text-[16px] font-medium text-white md:text-[17px]">
+      <div className="rounded-full bg-[var(--color-surface-contrast-bubble)] px-[18px] py-[12px] text-[16px] font-medium text-foreground md:text-[17px]">
         {content}
       </div>
 
@@ -235,11 +235,11 @@ function AssistantMessage({ thoughtLabel, thought, content }) {
         {thoughtLabel}
       </div>
 
-      <ul className="mt-[12px] pl-[20px] text-[15px] leading-[1.75] text-white/78">
+      <ul className="mt-[12px] pl-[20px] text-[15px] leading-[1.75] text-muted-foreground">
         <li>{thought}</li>
       </ul>
 
-      <div className="mt-[14px] flex flex-col gap-[12px] text-[17px] font-medium leading-[1.7] text-white md:text-[18px]">
+      <div className="mt-[14px] flex flex-col gap-[12px] text-[17px] font-medium leading-[1.7] text-foreground md:text-[18px]">
         {paragraphs.map((paragraph) => (
           <p key={paragraph} className="m-0 whitespace-pre-line">
             {paragraph}
@@ -337,7 +337,7 @@ function HistorySidebar({
       <button
         type="button"
         onClick={onNewChat}
-        className="mt-[22px] inline-flex min-h-[42px] items-center justify-center gap-[8px] rounded-full bg-[var(--color-surface-contrast-action)] px-[16px] py-[10px] text-[15px] font-medium text-white transition duration-200 hover:bg-[var(--color-surface-contrast-action-hover)]"
+        className="mt-[22px] inline-flex min-h-[42px] items-center justify-center gap-[8px] rounded-full bg-[var(--color-surface-contrast-action)] px-[16px] py-[10px] text-[15px] font-medium text-foreground transition duration-200 hover:bg-[var(--color-surface-contrast-action-hover)]"
       >
         <PencilLine className="h-[15px] w-[15px]" />
         New chat
@@ -347,7 +347,7 @@ function HistorySidebar({
         {Object.entries(groupedSessions).map(([label, sessions]) =>
           sessions.length ? (
             <div key={label}>
-              <p className="mb-[8px] px-[6px] text-[13px] font-medium text-white/42">
+              <p className="mb-[8px] px-[6px] text-[13px] font-medium text-muted-foreground">
                 {label}
               </p>
 
@@ -363,12 +363,12 @@ function HistorySidebar({
                       className={cn(
                         "flex w-full items-center justify-between rounded-[16px] px-[12px] py-[11px] text-left text-[15px] font-medium transition duration-200",
                         isSelected
-                          ? "bg-[var(--color-surface-contrast-accent)] text-white"
-                          : "text-white/76 hover:bg-[var(--color-surface-contrast-muted)]",
+                          ? "bg-[var(--color-surface-contrast-accent)] text-foreground"
+                          : "text-muted-foreground hover:bg-[var(--color-surface-contrast-muted)]",
                       )}
                     >
                       <span className="truncate">{item.title}</span>
-                      <Ellipsis className="h-[14px] w-[14px] shrink-0 text-white/34" />
+                      <Ellipsis className="h-[14px] w-[14px] shrink-0 text-muted-foreground opacity-60" />
                     </button>
                   );
                 })}
@@ -384,13 +384,13 @@ function HistorySidebar({
             Q
           </div>
           <div className="min-w-0">
-            <p className="m-0 truncate text-[14px] font-medium text-white/86">
+            <p className="m-0 truncate text-[14px] font-medium text-foreground">
               QMee User
             </p>
           </div>
         </div>
 
-        <Ellipsis className="h-[16px] w-[16px] shrink-0 text-white/36" />
+        <Ellipsis className="h-[16px] w-[16px] shrink-0 text-muted-foreground opacity-60" />
       </div>
     </div>
   );
@@ -465,7 +465,7 @@ export default function ChatbotPage() {
   };
 
   return (
-    <main className="min-h-screen w-full bg-[var(--color-surface-contrast-canvas)] text-white xl:h-screen xl:overflow-hidden">
+    <main className="min-h-screen w-full bg-[var(--color-surface-contrast-canvas)] text-foreground xl:h-screen xl:overflow-hidden">
       <div className="grid min-h-screen w-full xl:h-full xl:grid-cols-[260px_minmax(0,1fr)]">
         <aside className="hidden border-r border-[color:var(--color-border-muted)] bg-[var(--color-surface-contrast-sidebar)] px-[14px] py-[18px] xl:flex xl:h-full xl:min-h-0 xl:flex-col">
           <HistorySidebar
@@ -502,7 +502,7 @@ export default function ChatbotPage() {
           <header className="grid grid-cols-[40px_minmax(0,1fr)_40px] items-center px-[16px] py-[14px] md:px-[24px] md:py-[20px]">
             <button
               type="button"
-              className="inline-flex h-[36px] w-[36px] items-center justify-center rounded-full text-white/72 transition duration-200 hover:bg-white/[0.04] hover:text-white xl:pointer-events-none xl:opacity-0"
+              className="inline-flex h-[36px] w-[36px] items-center justify-center rounded-full text-muted-foreground transition duration-200 hover:bg-[var(--color-surface-glass-muted)] hover:text-foreground xl:pointer-events-none xl:opacity-0"
               aria-label="Open history"
               onClick={() => setIsHistoryOpen(true)}
             >
@@ -510,14 +510,14 @@ export default function ChatbotPage() {
             </button>
 
             <div className="min-w-0 text-center">
-              <p className="m-0 truncate text-[15px] font-semibold text-white">
+              <p className="m-0 truncate text-[15px] font-semibold text-foreground">
                 {selectedChat ? selectedChat.title : "New chat"}
               </p>
             </div>
 
             <button
               type="button"
-              className="inline-flex h-[36px] w-[36px] items-center justify-center rounded-full text-white/72 transition duration-200 hover:bg-white/[0.04] hover:text-white"
+              className="inline-flex h-[36px] w-[36px] items-center justify-center rounded-full text-muted-foreground transition duration-200 hover:bg-[var(--color-surface-glass-muted)] hover:text-foreground"
               aria-label="Share chat"
             >
               <Share2 className="h-[15px] w-[15px]" />
@@ -549,10 +549,10 @@ export default function ChatbotPage() {
                   <p className="text-[13px] font-medium uppercase tracking-[0.24em] text-[var(--color-brand-accent-soft)]">
                     QMee AI
                   </p>
-                  <h1 className="mt-[14px] text-[44px] font-semibold tracking-[-0.05em] text-white max-[640px]:text-[34px]">
+                  <h1 className="mt-[14px] text-[44px] font-semibold tracking-[-0.05em] text-foreground max-[640px]:text-[34px]">
                     How can I help?
                   </h1>
-                  <p className="mx-auto mt-[14px] max-w-[560px] text-[16px] leading-[1.7] text-white/56">
+                  <p className="mx-auto mt-[14px] max-w-[560px] text-[16px] leading-[1.7] text-muted-foreground">
                     Start a new thread for drafting, summarization, research,
                     or planning.
                   </p>
@@ -562,7 +562,7 @@ export default function ChatbotPage() {
                       <button
                         key={item}
                         type="button"
-                        className="inline-flex min-h-[38px] items-center justify-center rounded-full border border-[color:var(--color-border-subtle)] bg-[var(--color-surface-contrast-muted)] px-[14px] py-[8px] text-[14px] font-medium text-white/74 transition duration-200 hover:border-[color:var(--color-border-brand)] hover:text-white"
+                        className="inline-flex min-h-[38px] items-center justify-center rounded-full border border-[color:var(--color-border-subtle)] bg-[var(--color-surface-contrast-muted)] px-[14px] py-[8px] text-[14px] font-medium text-muted-foreground transition duration-200 hover:border-[color:var(--color-border-brand)] hover:text-foreground"
                       >
                         {item}
                       </button>
@@ -579,7 +579,7 @@ export default function ChatbotPage() {
           >
             <div className="pointer-events-auto">
               <ThreadComposer placeholder="Message QMee" />
-              <p className="mt-[8px] text-center text-[12px] text-white/28">
+              <p className="mt-[8px] text-center text-[12px] text-muted-foreground opacity-60">
                 AI-generated, for reference only
               </p>
             </div>

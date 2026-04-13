@@ -12,14 +12,14 @@ const buttonVariants = cva(
         default:
           "border-transparent bg-[var(--color-brand-primary)] text-[var(--color-text-on-brand)] shadow-[0_16px_36px_rgba(255,120,200,0.24)] hover:-translate-y-[1px] hover:bg-[var(--color-brand-primary-hover)] hover:shadow-[0_22px_42px_rgba(255,120,200,0.34)]",
         outline:
-          "border-white/12 bg-[rgb(255_255_255/0.06)] text-white/84 shadow-[0_14px_28px_rgba(0,0,0,0.14)] hover:-translate-y-[1px] hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-fill-brand-soft)] hover:text-white",
+          "border-border bg-[var(--color-surface-glass-muted)] text-muted-foreground shadow-[0_14px_28px_rgba(0,0,0,0.06)] hover:-translate-y-[1px] hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-fill-brand-soft)] hover:text-foreground",
         secondary:
-          "border-[color:var(--color-border-muted)] bg-[rgb(255_255_255/0.04)] text-white/78 shadow-[0_12px_24px_rgba(0,0,0,0.1)] hover:-translate-y-[1px] hover:border-white/14 hover:bg-[rgb(255_255_255/0.08)] hover:text-white",
+          "border-[color:var(--color-border-muted)] bg-[var(--color-surface-glass-subtle)] text-muted-foreground shadow-[0_12px_24px_rgba(0,0,0,0.05)] hover:-translate-y-[1px] hover:border-border hover:bg-[var(--color-surface-glass-strong)] hover:text-foreground",
         ghost:
-          "border-transparent bg-transparent text-white/62 hover:-translate-y-[1px] hover:bg-[rgb(255_255_255/0.06)] hover:text-white",
+          "border-transparent bg-transparent text-muted-foreground hover:-translate-y-[1px] hover:bg-[var(--color-surface-glass-muted)] hover:text-foreground",
         destructive:
           "border-transparent bg-[var(--color-danger)] text-white shadow-[0_14px_32px_rgba(255,107,138,0.24)] hover:-translate-y-[1px] hover:bg-[#ff86a0]",
-        link: "border-transparent bg-transparent p-0 text-[var(--color-brand-accent-soft)] hover:text-white",
+        link: "border-transparent bg-transparent p-0 text-[var(--color-brand-primary)] hover:text-foreground",
       },
       size: {
         default: "h-[42px] px-[16px] text-[13px]",

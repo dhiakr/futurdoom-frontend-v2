@@ -40,13 +40,13 @@ export default function ProfilePreviewDialog({
     <div className="fixed inset-0 z-50 flex items-center justify-center px-[16px] py-[24px]">
       <button
         type="button"
-        className="absolute inset-0 bg-black/72 backdrop-blur-[12px]"
+        className="absolute inset-0 bg-black/40 backdrop-blur-[12px]"
         aria-label="Close profile dialog"
         onClick={onClose}
       />
 
       <div
-        className="relative z-10 w-full max-w-[560px] overflow-hidden rounded-[32px] border border-white/12 shadow-[0_40px_120px_rgba(0,0,0,0.34)]"
+        className="relative z-10 w-full max-w-[560px] overflow-hidden rounded-[32px] border border-border shadow-[0_40px_120px_rgba(0,0,0,0.12)]"
         style={{
           backgroundColor: "var(--color-surface-community-card-strong)",
           backgroundImage:
@@ -86,7 +86,7 @@ export default function ProfilePreviewDialog({
           <div className="mt-[18px] flex items-start justify-between gap-[14px]">
             <div>
               <div className="flex flex-wrap items-center gap-[8px]">
-                <h2 className="m-0 text-[30px] font-semibold tracking-[-0.05em] text-white">
+                <h2 className="m-0 text-[30px] font-semibold tracking-[-0.05em] text-foreground">
                   {profile.name}
                 </h2>
                 {profile.verified ? (
@@ -94,7 +94,7 @@ export default function ProfilePreviewDialog({
                 ) : null}
               </div>
 
-              <p className="m-0 mt-[6px] text-[14px] text-white/58">
+              <p className="m-0 mt-[6px] text-[14px] text-muted-foreground">
                 {profile.handle}
               </p>
             </div>
@@ -107,7 +107,7 @@ export default function ProfilePreviewDialog({
             </Button>
           </div>
 
-          <div className="mt-[16px] space-y-[8px] text-[15px] text-white/68">
+          <div className="mt-[16px] space-y-[8px] text-[15px] text-muted-foreground">
             <div className="inline-flex items-center gap-[8px]">
               <MapPin className="h-[15px] w-[15px] text-[var(--color-brand-accent-soft)]" />
               {profile.location}
@@ -117,7 +117,7 @@ export default function ProfilePreviewDialog({
             </p>
           </div>
 
-          <p className="m-0 mt-[18px] text-[15px] leading-[1.8] text-white/78">
+          <p className="m-0 mt-[18px] text-[15px] leading-[1.8] text-muted-foreground">
             {profile.bio}
           </p>
 
@@ -132,7 +132,7 @@ export default function ProfilePreviewDialog({
                   target="_blank"
                   rel="noreferrer"
                   aria-label={social.label}
-                  className="inline-flex h-[42px] min-w-[42px] items-center justify-center gap-[8px] rounded-full border border-white/12 bg-[rgb(255_255_255/0.06)] px-[14px] text-[13px] font-medium text-white/82 no-underline transition duration-200 hover:-translate-y-[1px] hover:border-[color:var(--color-border-brand-soft)] hover:bg-[var(--color-fill-brand-soft)] hover:text-white"
+                  className="inline-flex h-[42px] min-w-[42px] items-center justify-center gap-[8px] rounded-full border border-border bg-[var(--color-surface-glass-muted)] px-[14px] text-[13px] font-medium text-muted-foreground no-underline transition duration-200 hover:-translate-y-[1px] hover:border-[color:var(--color-border-brand-soft)] hover:bg-[var(--color-fill-brand-soft)] hover:text-foreground"
                 >
                   {Icon ? <Icon className="h-[15px] w-[15px]" /> : null}
                   <span>{social.label}</span>
@@ -141,17 +141,17 @@ export default function ProfilePreviewDialog({
             })}
           </div>
 
-          <div className="mt-[24px] flex items-end justify-between gap-[16px] rounded-[26px] border border-white/10 bg-[rgb(255_255_255/0.05)] px-[18px] py-[16px]">
+          <div className="mt-[24px] flex items-end justify-between gap-[16px] rounded-[26px] border border-border bg-[var(--color-surface-glass-muted)] px-[18px] py-[16px]">
             <div>
-              <div className="text-[12px] font-medium uppercase tracking-[0.2em] text-white/46">
+              <div className="text-[12px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
                 Followers
               </div>
-              <div className="mt-[8px] text-[28px] font-semibold tracking-[-0.05em] text-white">
+              <div className="mt-[8px] text-[28px] font-semibold tracking-[-0.05em] text-foreground">
                 {profile.followers}
               </div>
             </div>
 
-            <p className="m-0 max-w-[220px] text-right text-[13px] leading-[1.7] text-white/58">
+            <p className="m-0 max-w-[220px] text-right text-[13px] leading-[1.7] text-muted-foreground">
               {profile.profileNote}
             </p>
           </div>

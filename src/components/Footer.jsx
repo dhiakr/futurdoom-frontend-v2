@@ -80,7 +80,7 @@ const legalLinks = [
 export default function Footer() {
   return (
     <footer className="relative z-10 mt-auto px-[24px] pb-[24px] max-[640px]:px-[16px] max-[640px]:pb-[16px]">
-      <div className="relative mx-auto overflow-hidden rounded-[34px] border border-white/10 bg-[#050205]/96 px-[28px] py-[28px] shadow-[0_32px_100px_rgba(0,0,0,0.38)] backdrop-blur-[24px] max-[640px]:px-[20px] max-[640px]:py-[22px]">
+      <div className="relative mx-auto overflow-hidden rounded-[34px] border border-border bg-[var(--color-surface-community-card-strong)] px-[28px] py-[28px] shadow-[0_32px_100px_rgba(0,0,0,0.08)] backdrop-blur-[24px] max-[640px]:px-[20px] max-[640px]:py-[22px]">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-y-0 right-0 hidden w-full bg-[radial-gradient(circle_at_top_left,rgba(255,120,200,0.14),transparent_36%),repeating-linear-gradient(-32deg,transparent_0_28px,rgba(255,120,200,0.1)_28px_32px)] opacity-60 lg:block"
@@ -100,12 +100,12 @@ export default function Footer() {
                 />
               </span>
 
-              <span className="text-[20px] font-semibold tracking-[-0.04em] text-white">
+              <span className="text-[20px] font-semibold tracking-[-0.04em] text-foreground">
                 QMee
               </span>
             </Link>
 
-            <div className="mt-[22px] space-y-[2px] text-[15px] leading-[1.45] text-white/82">
+            <div className="mt-[22px] space-y-[2px] text-[15px] leading-[1.45] text-muted-foreground">
               <p className="m-0">Lisbon HQ</p>
               <p className="m-0">Support Live 24/6</p>
               <p className="m-0">hello@qmee.ai</p>
@@ -143,7 +143,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={item.label}
-                    className="inline-flex h-[38px] w-[38px] items-center justify-center rounded-[10px] bg-[linear-gradient(180deg,rgba(255,120,200,0.24),rgba(255,120,200,0.08))] text-[#ff99db] shadow-[0_10px_30px_rgba(0,0,0,0.2)] transition duration-200 hover:bg-[linear-gradient(180deg,rgba(255,153,219,0.3),rgba(255,120,200,0.14))] hover:text-white"
+                    className="inline-flex h-[38px] w-[38px] items-center justify-center rounded-[10px] bg-[linear-gradient(180deg,rgba(255,120,200,0.12),rgba(255,120,200,0.04))] text-[#ff78c8] shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition duration-200 hover:bg-[linear-gradient(180deg,rgba(255,153,219,0.18),rgba(255,120,200,0.08))] hover:text-foreground"
                   >
                     <Icon className="h-[18px] w-[18px]" />
                   </a>
@@ -154,7 +154,7 @@ export default function Footer() {
 
           {footerColumns.map((column) => (
             <section key={column.title}>
-              <h3 className="m-0 text-[15px] font-medium text-white/48">
+              <h3 className="m-0 text-[15px] font-medium text-muted-foreground uppercase tracking-[0.05em] text-[12px]">
                 {column.title}
               </h3>
 
@@ -162,7 +162,7 @@ export default function Footer() {
                 {column.items.map((item) => (
                   <span
                     key={item}
-                    className="text-[15px] font-medium leading-[1.25] text-white/92"
+                    className="text-[15px] font-medium leading-[1.25] text-foreground opacity-90"
                   >
                     {item}
                   </span>
@@ -172,7 +172,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="relative mt-[34px] flex flex-col gap-[14px] border-t border-white/8 pt-[20px] text-[14px] text-white/42 lg:flex-row lg:items-center lg:justify-between">
+        <div className="relative mt-[34px] flex flex-col gap-[14px] border-t border-border pt-[20px] text-[14px] text-muted-foreground lg:flex-row lg:items-center lg:justify-between">
           <span>{new Date().getFullYear()} QMee. All rights reserved.</span>
 
           <div className="flex flex-wrap gap-x-[22px] gap-y-[8px]">

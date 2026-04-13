@@ -6,7 +6,7 @@ import ShareAvatar from "./ShareAvatar";
 
 function ThreadActivity({ items }) {
   return (
-    <div className="mt-[12px] flex flex-wrap gap-x-[16px] gap-y-[6px] text-[13px] text-white/54">
+    <div className="mt-[12px] flex flex-wrap gap-x-[16px] gap-y-[6px] text-[13px] text-muted-foreground">
       {items.map((item) => (
         <span key={item} className="inline-flex items-center gap-[8px]">
           <span
@@ -37,14 +37,12 @@ function ConversationCard({ message, showThreadStats, activity }) {
         />
 
         <div
-          className="rounded-[26px] border px-[18px] py-[18px] shadow-[0_18px_42px_rgba(0,0,0,0.14)]"
+          className="rounded-[16px] px-[24px] py-[20px] shadow-[0_4px_24px_rgba(0,0,0,0.03)]"
           style={{
-            borderColor: "rgb(var(--thread-accent-rgb) / 0.24)",
-            background:
-              "linear-gradient(180deg, rgb(var(--thread-accent-rgb) / 0.16), rgb(255 255 255 / 0.04))",
+            backgroundColor: "rgb(var(--thread-accent-rgb) / 0.04)",
           }}
         >
-          <div className="flex items-center gap-[10px] text-[13px] text-white/56">
+          <div className="flex items-center gap-[10px] text-[13px] text-muted-foreground">
             <span
               className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-full border"
               style={{
@@ -56,19 +54,19 @@ function ConversationCard({ message, showThreadStats, activity }) {
               <Bot className="h-[15px] w-[15px]" />
             </span>
             <div className="min-w-0">
-              <p className="m-0 font-semibold text-white">{message.name}</p>
-              <p className="m-0 mt-[2px] text-[12px] text-white/52">
+              <p className="m-0 font-semibold text-foreground">{message.name}</p>
+              <p className="m-0 mt-[2px] text-[12px] text-muted-foreground">
                 {message.meta} - {message.timestamp}
               </p>
             </div>
           </div>
 
-          <p className="m-0 mt-[14px] text-[15px] leading-[1.8] text-white/82">
+          <p className="m-0 mt-[14px] text-[15px] leading-[1.8] text-foreground opacity-80">
             {message.text}
           </p>
 
           {message.callout ? (
-            <p className="m-0 mt-[12px] text-[14px] leading-[1.75] text-white/68">
+            <p className="m-0 mt-[12px] text-[14px] leading-[1.75] text-muted-foreground opacity-80">
               {message.callout}
             </p>
           ) : null}
@@ -87,7 +85,7 @@ function ConversationCard({ message, showThreadStats, activity }) {
   }
 
   return (
-    <div className="rounded-[26px] border border-white/12 bg-[rgb(255_255_255/0.05)] px-[18px] py-[18px] shadow-[0_18px_42px_rgba(0,0,0,0.12)]">
+    <div className="rounded-[16px] bg-white/60 px-[24px] py-[20px] shadow-[0_4px_24px_rgba(0,0,0,0.02)] mix-blend-luminosity">
       <div className="flex items-start gap-[14px]">
         <ShareAvatar
           name={message.name}
@@ -96,16 +94,15 @@ function ConversationCard({ message, showThreadStats, activity }) {
           imageSrc={message.avatarImage}
           size="sm"
           shape="circle"
-          showStatus={message.isOnline}
         />
 
         <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap items-center gap-[8px] text-[13px] text-white/54">
-            <span className="font-semibold text-white">{message.name}</span>
+          <div className="flex flex-wrap items-center gap-[8px] text-[13px] text-muted-foreground">
+            <span className="font-semibold text-foreground">{message.name}</span>
             <span>{message.timestamp}</span>
           </div>
 
-          <p className="m-0 mt-[10px] text-[15px] leading-[1.8] text-white/82">
+          <p className="m-0 mt-[10px] text-[15px] leading-[1.8] text-foreground opacity-80">
             {message.text}
           </p>
 
@@ -121,15 +118,9 @@ export default function DiscussionThreadCard({ thread }) {
 
   return (
     <article
-      className="overflow-hidden rounded-[30px] border border-white/12 shadow-[0_28px_96px_rgba(0,0,0,0.22)] backdrop-blur-[24px] transition duration-300 hover:-translate-y-[2px]"
+      className="overflow-hidden rounded-[20px] bg-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.03)] backdrop-blur-[24px] transition duration-300 hover:-translate-y-[2px] hover:shadow-[0_14px_48px_rgba(0,0,0,0.05)]"
       style={{
         "--thread-accent-rgb": accentRgb,
-        borderColor: "rgb(var(--thread-accent-rgb) / 0.18)",
-        backgroundColor: "var(--color-surface-community-card)",
-        backgroundImage:
-          "linear-gradient(180deg, rgb(var(--thread-accent-rgb) / 0.14), rgb(255 255 255 / 0.04) 26%, transparent 42%)",
-        boxShadow:
-          "0 28px 96px rgba(0,0,0,0.22), inset 0 1px 0 rgb(255 255 255 / 0.04)",
       }}
     >
       <div
@@ -137,11 +128,11 @@ export default function DiscussionThreadCard({ thread }) {
         className="h-[3px] w-full"
         style={{
           background:
-            "linear-gradient(90deg, rgb(var(--thread-accent-rgb) / 0.98), rgb(var(--thread-accent-rgb) / 0.36) 58%, transparent)",
+            "linear-gradient(90deg, rgb(var(--thread-accent-rgb) / 0.6), rgb(var(--thread-accent-rgb) / 0.1) 58%, transparent)",
         }}
       />
 
-      <div className="border-b border-[color:var(--color-border-muted)] px-[22px] py-[20px]">
+      <div className="border-b border-black/5 px-[28px] py-[24px]">
         <div
           className="inline-flex items-center gap-[8px] rounded-full border px-[12px] py-[8px] text-[12px] font-semibold uppercase tracking-[0.22em]"
           style={{
@@ -158,16 +149,16 @@ export default function DiscussionThreadCard({ thread }) {
           {thread.sectionLabel}
         </div>
 
-        <h3 className="m-0 mt-[10px] text-[clamp(1.5rem,3vw,2.15rem)] font-semibold leading-[1.06] tracking-[-0.05em] text-white">
+        <h3 className="m-0 mt-[10px] text-[clamp(1.5rem,3vw,2.15rem)] font-semibold leading-[1.06] tracking-[-0.05em] text-foreground">
           {thread.title}
         </h3>
-        <p className="m-0 mt-[12px] max-w-[780px] text-[15px] leading-[1.8] text-white/70">
+        <p className="m-0 mt-[12px] max-w-[780px] text-[16px] leading-[1.8] text-muted-foreground">
           {thread.summary}
         </p>
         <ThreadActivity items={thread.overview} />
       </div>
 
-      <div className="space-y-[14px] px-[20px] py-[20px]">
+      <div className="space-y-[16px] px-[26px] py-[24px]">
         {thread.messages.map((message, index) => (
           <ConversationCard
             key={message.id}
@@ -178,8 +169,8 @@ export default function DiscussionThreadCard({ thread }) {
         ))}
       </div>
 
-      <div className="flex flex-col gap-[14px] border-t border-[color:var(--color-border-muted)] px-[20px] py-[18px] md:flex-row md:items-center md:justify-between">
-        <div className="flex items-center gap-[10px] text-[13px] text-white/58">
+      <div className="flex flex-col gap-[14px] border-t border-black/5 bg-white/20 px-[26px] py-[20px] md:flex-row md:items-center md:justify-between">
+        <div className="flex items-center gap-[10px] text-[13px] text-muted-foreground">
           <MessageSquareText
             className="h-[15px] w-[15px]"
             style={{ color: "rgb(var(--thread-accent-rgb) / 0.84)" }}

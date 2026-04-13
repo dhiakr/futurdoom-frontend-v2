@@ -41,18 +41,15 @@ export default function Share() {
       </div>
 
       <main className="relative z-10 px-[24px] pb-[72px] pt-[20px] max-[640px]:px-[16px] max-[640px]:pb-[48px]">
-        <section className="mx-auto w-full max-w-[1320px]">
-          <div
-            id="community-feed"
-            className="grid gap-[20px] xl:grid-cols-[320px_minmax(0,1fr)]"
-          >
-            <aside className="relative z-20 xl:sticky xl:top-[118px] xl:self-start">
+        <section className="mx-auto w-full max-w-[1700px]">
+          <div className="grid gap-[24px] lg:grid-cols-[280px_minmax(0,1fr)_280px] xl:grid-cols-[300px_minmax(0,1fr)_300px]">
+            <aside className="relative z-20 lg:sticky lg:top-[118px] lg:self-start">
               <ProfileSpotlightCard profile={featuredProfile} />
             </aside>
 
             <div className="relative z-10 space-y-[18px]">
               <div
-                className="relative overflow-hidden rounded-[24px] px-[18px] py-[16px] shadow-[0_24px_70px_rgba(255,120,200,0.32)]"
+                className="relative overflow-hidden rounded-[20px] px-[24px] py-[22px] shadow-[0_12px_40px_rgba(255,120,200,0.18)]"
                 style={{
                   backgroundColor: "var(--color-brand-primary)",
                   backgroundImage:
@@ -94,6 +91,9 @@ export default function Share() {
                 <DiscussionThreadCard key={thread.id} thread={thread} />
               ))}
             </div>
+            
+            <aside className="hidden lg:block relative z-20 lg:sticky lg:top-[118px] lg:self-start">
+            </aside>
           </div>
         </section>
       </main>

@@ -10,13 +10,13 @@ const navItems = [
 ];
 
 const navLinkClassName =
-  "inline-flex items-center justify-center rounded-full px-[18px] py-[10px] text-[12px] font-semibold uppercase tracking-[0.2em] text-white/72 transition duration-200 hover:bg-[var(--color-fill-brand-soft)] hover:text-white";
+  "inline-flex items-center justify-center rounded-full px-[18px] py-[10px] text-[12px] font-semibold uppercase tracking-[0.2em] text-muted-foreground transition duration-200 hover:bg-[var(--color-fill-brand-soft)] hover:text-foreground";
 
 const primaryCtaClassName =
   "inline-flex min-h-[48px] items-center justify-center rounded-full bg-[var(--color-brand-primary)] px-[24px] py-[12px] text-[15px] font-semibold text-[var(--color-text-on-brand)] no-underline shadow-[0_0_36px_rgba(255,120,200,0.28)] transition duration-200 hover:bg-[var(--color-brand-primary-hover)] hover:shadow-[0_0_48px_rgba(255,120,200,0.38)]";
 
 const secondaryCtaClassName =
-  "inline-flex min-h-[48px] items-center justify-center rounded-full border border-[color:var(--color-border-subtle)] bg-[var(--color-surface-glass-strong)] px-[22px] py-[12px] text-[15px] font-medium text-white/82 no-underline transition duration-200 hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-fill-brand-soft)] hover:text-white";
+  "inline-flex min-h-[48px] items-center justify-center rounded-full border border-[color:var(--color-border-subtle)] bg-[var(--color-surface-glass-strong)] px-[22px] py-[12px] text-[15px] font-medium text-muted-foreground no-underline transition duration-200 hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-fill-brand-soft)] hover:text-foreground";
 
 const NAV_EXPANDED_MAX_WIDTH = 1340;
 const NAV_COMPACT_MAX_WIDTH = 1040;
@@ -113,12 +113,12 @@ export default function Navbar() {
       0,
       scrollProgress,
     ).toFixed(3)})`,
-    borderColor: `rgb(255 255 255 / ${interpolate(0.1, 0, scrollProgress).toFixed(
+    borderColor: `rgb(0 0 0 / ${interpolate(0.08, 0, scrollProgress).toFixed(
       3,
     )})`,
     boxShadow: `0 ${Math.round(interpolate(28, 14, scrollProgress))}px ${Math.round(
       interpolate(80, 44, scrollProgress),
-    )}px rgb(0 0 0 / ${interpolate(0.34, 0.1, scrollProgress).toFixed(3)})`,
+    )}px rgb(0 0 0 / ${interpolate(0.08, 0.02, scrollProgress).toFixed(3)})`,
     backdropFilter: `blur(${interpolate(24, 10, scrollProgress).toFixed(2)}px)`,
     WebkitBackdropFilter: `blur(${interpolate(24, 10, scrollProgress).toFixed(
       2,
@@ -152,7 +152,7 @@ export default function Navbar() {
             </span>
 
             <span
-              className={`truncate text-[18px] font-semibold tracking-[-0.04em] text-white transition-opacity duration-200 ${
+              className={`truncate text-[18px] font-semibold tracking-[-0.04em] text-foreground transition-opacity duration-200 ${
                 isCompact ? "opacity-90" : "opacity-100"
               }`}
             >
@@ -176,7 +176,7 @@ export default function Navbar() {
 
           <button
             type="button"
-            className="inline-flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-full border border-[color:var(--color-border-subtle)] bg-[var(--color-surface-glass-strong)] text-white transition duration-200 hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-fill-brand-soft)] lg:hidden"
+            className="inline-flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-full border border-[color:var(--color-border-subtle)] bg-[var(--color-surface-glass-strong)] text-foreground transition duration-200 hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-fill-brand-soft)] lg:hidden"
             onClick={() => setIsDrawerOpen(true)}
             aria-label="Open navigation"
             aria-controls="mobile-navigation-drawer"
@@ -191,7 +191,7 @@ export default function Navbar() {
         <div className="fixed inset-0 z-50 lg:hidden">
           <button
             type="button"
-            className="absolute inset-0 bg-black/72 backdrop-blur-[6px]"
+            className="absolute inset-0 bg-black/40 backdrop-blur-[6px]"
             aria-label="Close navigation"
             onClick={() => setIsDrawerOpen(false)}
           />
@@ -201,13 +201,13 @@ export default function Navbar() {
             className="absolute right-[16px] top-[16px] flex w-[min(360px,calc(100%-32px))] flex-col gap-[18px] rounded-[32px] border border-[color:var(--color-border-subtle)] bg-[var(--color-surface-overlay-strong)] p-[18px] shadow-[0_32px_90px_rgba(0,0,0,0.52)] backdrop-blur-[26px]"
           >
             <div className="flex items-center justify-between gap-[12px]">
-              <span className="text-[18px] font-semibold text-white">
+              <span className="text-[18px] font-semibold text-foreground">
                 Navigation
               </span>
 
               <button
                 type="button"
-                className="inline-flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full border border-[color:var(--color-border-subtle)] bg-[var(--color-surface-glass-strong)] text-white transition duration-200 hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-fill-brand-soft)]"
+                className="inline-flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full border border-[color:var(--color-border-subtle)] bg-[var(--color-surface-glass-strong)] text-foreground transition duration-200 hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-fill-brand-soft)]"
                 onClick={() => setIsDrawerOpen(false)}
                 aria-label="Close navigation"
               >
@@ -220,7 +220,7 @@ export default function Navbar() {
                 <Link
                   key={item.to}
                   to={item.to}
-                  className="inline-flex items-center justify-center rounded-full border border-[color:var(--color-border-subtle)] bg-[var(--color-surface-glass-subtle)] px-[16px] py-[14px] text-[13px] font-semibold uppercase tracking-[0.18em] text-white/76 transition duration-200 hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-fill-brand-soft)] hover:text-white"
+                  className="inline-flex items-center justify-center rounded-full border border-[color:var(--color-border-subtle)] bg-[var(--color-surface-glass-subtle)] px-[16px] py-[14px] text-[13px] font-semibold uppercase tracking-[0.18em] text-muted-foreground transition duration-200 hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-fill-brand-soft)] hover:text-foreground"
                   onClick={() => setIsDrawerOpen(false)}
                 >
                   {item.label}

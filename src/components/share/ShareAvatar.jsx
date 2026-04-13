@@ -20,7 +20,6 @@ export default function ShareAvatar({
   size = "md",
   shape = "circle",
   className,
-  showStatus = false,
 }) {
   const fallbackInitials = name
     ?.split(" ")
@@ -34,7 +33,7 @@ export default function ShareAvatar({
       <div
         aria-label={name}
         className={cn(
-          "inline-flex items-center justify-center overflow-hidden border border-white/14 text-center font-semibold tracking-[-0.04em] text-white shadow-[0_18px_40px_rgba(0,0,0,0.28)]",
+          "inline-flex items-center justify-center overflow-hidden border border-border text-center font-semibold tracking-[-0.04em] text-white shadow-[0_18px_40px_rgba(0,0,0,0.08)]",
           sizeClasses[size],
           shapeClasses[shape],
         )}
@@ -55,9 +54,6 @@ export default function ShareAvatar({
         )}
       </div>
 
-      {showStatus ? (
-        <span className="absolute bottom-[6px] right-[6px] h-[14px] w-[14px] rounded-full border-2 border-[color:var(--color-surface-base)] bg-[var(--color-success)] shadow-[0_0_18px_rgba(110,255,168,0.6)]" />
-      ) : null}
     </div>
   );
 }

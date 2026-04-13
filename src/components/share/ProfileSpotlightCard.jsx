@@ -34,12 +34,7 @@ export default function ProfileSpotlightCard({ profile }) {
   return (
     <>
       <section
-        className="overflow-hidden rounded-[30px] border border-white/12 shadow-[0_28px_90px_rgba(0,0,0,0.26)] backdrop-blur-[24px]"
-        style={{
-          backgroundColor: "var(--color-surface-community-card)",
-          backgroundImage:
-            "linear-gradient(180deg, rgb(255 255 255 / 0.05), transparent 42%)",
-        }}
+        className="overflow-hidden rounded-[20px] bg-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.03)] backdrop-blur-[24px]"
       >
         <div
           className="h-[148px] w-full bg-cover bg-center"
@@ -50,7 +45,7 @@ export default function ProfileSpotlightCard({ profile }) {
           }}
         />
 
-        <div className="px-[22px] pb-[22px]">
+        <div className="px-[28px] pb-[28px]">
           <div className="-mt-[46px]">
             <ShareAvatar
               name={profile.name}
@@ -65,7 +60,7 @@ export default function ProfileSpotlightCard({ profile }) {
 
           <div className="mt-[16px]">
             <div className="flex flex-wrap items-center gap-[8px]">
-              <h2 className="m-0 text-[26px] font-semibold tracking-[-0.05em] text-white">
+              <h2 className="m-0 text-[26px] font-semibold tracking-[-0.05em] text-foreground">
                 {profile.name}
               </h2>
               {profile.verified ? (
@@ -73,7 +68,7 @@ export default function ProfileSpotlightCard({ profile }) {
               ) : null}
             </div>
 
-            <div className="mt-[12px] flex items-center gap-[8px] text-[14px] text-white/68">
+            <div className="mt-[12px] flex items-center gap-[8px] text-[14px] text-muted-foreground">
               <MapPin className="h-[15px] w-[15px] text-[var(--color-brand-accent-soft)]" />
               {profile.location}
             </div>
@@ -85,7 +80,7 @@ export default function ProfileSpotlightCard({ profile }) {
 
           <div className="mt-[18px]">
             <p
-              className="m-0 text-[14px] leading-[1.8] text-white/76"
+              className="m-0 text-[14px] leading-[1.8] text-muted-foreground"
               style={{
                 display: "-webkit-box",
                 WebkitBoxOrient: "vertical",
@@ -107,7 +102,7 @@ export default function ProfileSpotlightCard({ profile }) {
             </ShareActionButton>
           </div>
 
-          <div className="mt-[18px] flex flex-wrap items-center gap-[10px] border-t border-[color:var(--color-border-muted)] pt-[18px]">
+          <div className="mt-[24px] flex flex-wrap items-center gap-[10px] border-t border-black/5 pt-[22px]">
             {profile.socials.map((social) => {
               const Icon = socialIconMap[social.platform];
 
@@ -118,7 +113,7 @@ export default function ProfileSpotlightCard({ profile }) {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={social.label}
-                  className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-full border border-white/12 bg-[rgb(255_255_255/0.05)] text-white/74 transition duration-200 hover:-translate-y-[1px] hover:border-[color:var(--color-border-brand-soft)] hover:bg-[var(--color-fill-brand-soft)] hover:text-white"
+                  className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-full border border-border bg-[var(--color-surface-glass-muted)] text-muted-foreground transition duration-200 hover:-translate-y-[1px] hover:border-[color:var(--color-border-brand-soft)] hover:bg-[var(--color-fill-brand-soft)] hover:text-foreground"
                 >
                   {Icon ? <Icon className="h-[15px] w-[15px]" /> : null}
                 </a>
@@ -126,12 +121,12 @@ export default function ProfileSpotlightCard({ profile }) {
             })}
           </div>
 
-          <div className="mt-[18px] flex items-end justify-between gap-[14px]">
+          <div className="mt-[24px] flex items-end justify-between gap-[14px]">
             <div>
-              <p className="m-0 text-[12px] font-medium uppercase tracking-[0.18em] text-white/46">
+              <p className="m-0 text-[12px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
                 Followers
               </p>
-              <p className="m-0 mt-[8px] text-[26px] font-semibold tracking-[-0.05em] text-white">
+              <p className="m-0 mt-[8px] text-[26px] font-semibold tracking-[-0.05em] text-foreground">
                 {profile.followers}
               </p>
             </div>
