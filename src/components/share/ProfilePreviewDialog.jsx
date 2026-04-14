@@ -3,13 +3,9 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import ShareActionButton from "./ShareActionButton";
 import ShareAvatar from "./ShareAvatar";
+import shareSocialIconMap from "./shareSocialIconMap";
 
-export default function ProfilePreviewDialog({
-  profile,
-  socialIconMap,
-  open,
-  onClose,
-}) {
+export default function ProfilePreviewDialog({ profile, open, onClose }) {
   useEffect(() => {
     if (!open) {
       return undefined;
@@ -32,47 +28,49 @@ export default function ProfilePreviewDialog({
     };
   }, [onClose, open]);
 
-  if (!open) {
+  if (!open || !profile) {
     return null;
   }
+
+  const dialogTitleId = "share-profile-dialog-title";
+  const dialogDescriptionId = "share-profile-dialog-description";
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center px-[16px] py-[24px]">
       <button
         type="button"
-        className="absolute inset-0 bg-black/40 backdrop-blur-[12px]"
+        className="share-dialog-backdrop absolute inset-0 bg-[rgba(17,6,13,0.52)]"
         aria-label="Close profile dialog"
         onClick={onClose}
       />
 
       <div
-        className="relative z-10 w-full max-w-[560px] overflow-hidden rounded-[32px] border border-border shadow-[0_40px_120px_rgba(0,0,0,0.12)]"
-        style={{
-          backgroundColor: "var(--color-surface-community-card-strong)",
-          backgroundImage:
-            "linear-gradient(180deg, rgb(255 255 255 / 0.05), transparent 38%)",
-        }}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={dialogTitleId}
+        aria-describedby={dialogDescriptionId}
+        className="share-dialog-panel relative z-10 max-h-[calc(100vh-48px)] w-full max-w-[620px] overflow-y-auto overflow-x-hidden rounded-[34px] border border-[color:var(--color-border-muted)] bg-[var(--color-surface-base)] shadow-[0_34px_90px_rgba(40,8,26,0.18)]"
       >
         <ShareActionButton
           icon={X}
-          variant="secondary"
+          variant="ghost"
           size="sm"
-          className="absolute right-[18px] top-[18px]"
+          className="absolute right-[20px] top-[20px] border border-[color:var(--color-border-muted)] bg-white text-foreground shadow-[0_14px_30px_rgba(0,0,0,0.08)] hover:bg-[var(--color-surface-contrast-button)]"
           aria-label="Close profile dialog"
           onClick={onClose}
         />
 
         <div
-          className="h-[190px] w-full bg-cover bg-center"
+          className="h-[182px] w-full bg-cover bg-center"
           style={{
             backgroundImage: profile.coverImage
-              ? `linear-gradient(180deg, rgb(0 0 0 / 0.06), rgb(0 0 0 / 0.4)), url(${profile.coverImage})`
+              ? `linear-gradient(180deg, rgb(17 6 13 / 0.04), rgb(17 6 13 / 0.22)), url(${profile.coverImage})`
               : "var(--gradient-profile-banner)",
           }}
         />
 
-        <div className="px-[24px] pb-[24px]">
-          <div className="-mt-[56px]">
+        <div className="px-[24px] pb-[28px]">
+          <div className="share-load-in-soft -mt-[54px]" style={{ "--share-delay": "120ms" }}>
             <ShareAvatar
               name={profile.name}
               initials={profile.initials}
@@ -80,23 +78,35 @@ export default function ProfilePreviewDialog({
               imageSrc={profile.avatarImage}
               size="xl"
               shape="circle"
+              className="border-[4px] border-white"
             />
           </div>
 
-          <div className="mt-[18px] flex items-start justify-between gap-[14px]">
-            <div>
+          <div
+            className="share-load-in-soft mt-[18px] flex flex-wrap items-start justify-between gap-[16px]"
+            style={{ "--share-delay": "160ms" }}
+          >
+            <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-[8px]">
-                <h2 className="m-0 text-[30px] font-semibold tracking-[-0.05em] text-foreground">
+                <h2
+                  id={dialogTitleId}
+                  className="m-0 text-[30px] font-semibold tracking-[-0.05em] text-foreground"
+                >
                   {profile.name}
                 </h2>
                 {profile.verified ? (
-                  <BadgeCheck className="h-[20px] w-[20px] text-[var(--color-brand-accent)]" />
+                  <BadgeCheck className="h-[20px] w-[20px] text-[var(--color-brand-primary)]" />
                 ) : null}
               </div>
 
               <p className="m-0 mt-[6px] text-[14px] text-muted-foreground">
                 {profile.handle}
               </p>
+
+              <div className="mt-[12px] inline-flex items-center gap-[8px] rounded-full bg-[var(--color-fill-brand-faint)] px-[12px] py-[8px] text-[13px] text-[var(--color-brand-primary-foreground-strong)]">
+                <MapPin className="h-[14px] w-[14px]" />
+                <span>{profile.location}</span>
+              </div>
             </div>
 
             <Button asChild className="shrink-0 text-[13px] no-underline">
@@ -107,23 +117,50 @@ export default function ProfilePreviewDialog({
             </Button>
           </div>
 
-          <div className="mt-[16px] space-y-[8px] text-[15px] text-muted-foreground">
-            <div className="inline-flex items-center gap-[8px]">
-              <MapPin className="h-[15px] w-[15px] text-[var(--color-brand-accent-soft)]" />
-              {profile.location}
-            </div>
-            <p className="m-0 text-[var(--color-brand-accent-soft)]">
-              {profile.profession}
-            </p>
-          </div>
+          <p
+            className="share-load-in-soft m-0 mt-[16px] text-[15px] font-medium text-[var(--color-brand-tertiary)]"
+            style={{ "--share-delay": "200ms" }}
+          >
+            {profile.profession}
+          </p>
 
-          <p className="m-0 mt-[18px] text-[15px] leading-[1.8] text-muted-foreground">
+          <p
+            id={dialogDescriptionId}
+            className="share-load-in-soft m-0 mt-[14px] text-[15px] leading-[1.8] text-muted-foreground"
+            style={{ "--share-delay": "220ms" }}
+          >
             {profile.bio}
           </p>
 
-          <div className="mt-[22px] flex flex-wrap gap-[10px]">
-            {profile.socials.map((social) => {
-              const Icon = socialIconMap[social.platform];
+          <div
+            className="share-load-in-soft mt-[24px] grid gap-[12px] sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]"
+            style={{ "--share-delay": "260ms" }}
+          >
+            <div className="rounded-[24px] border border-[color:var(--color-border-muted)] bg-[var(--color-fill-brand-faint)] px-[18px] py-[16px]">
+              <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                Followers
+              </div>
+              <div className="mt-[8px] text-[28px] font-semibold tracking-[-0.05em] text-foreground">
+                {profile.followers}
+              </div>
+            </div>
+
+            <div className="rounded-[24px] border border-[color:var(--color-border-muted)] bg-[var(--color-surface-contrast-button)] px-[18px] py-[16px]">
+              <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                Why Follow
+              </div>
+              <p className="m-0 mt-[8px] text-[14px] leading-[1.7] text-muted-foreground">
+                {profile.profileNote}
+              </p>
+            </div>
+          </div>
+
+          <div
+            className="share-load-in-soft mt-[22px] flex flex-wrap gap-[10px]"
+            style={{ "--share-delay": "300ms" }}
+          >
+            {profile.socials?.map((social) => {
+              const Icon = shareSocialIconMap[social.platform];
 
               return (
                 <a
@@ -132,28 +169,13 @@ export default function ProfilePreviewDialog({
                   target="_blank"
                   rel="noreferrer"
                   aria-label={social.label}
-                  className="inline-flex h-[42px] min-w-[42px] items-center justify-center gap-[8px] rounded-full border border-border bg-[var(--color-surface-glass-muted)] px-[14px] text-[13px] font-medium text-muted-foreground no-underline transition duration-200 hover:-translate-y-[1px] hover:border-[color:var(--color-border-brand-soft)] hover:bg-[var(--color-fill-brand-soft)] hover:text-foreground"
+                  className="inline-flex h-[44px] items-center gap-[10px] rounded-full border border-[color:var(--color-border-muted)] bg-[var(--color-surface-base)] px-[16px] text-[13px] font-medium text-muted-foreground no-underline shadow-[0_12px_26px_rgba(0,0,0,0.04)] transition duration-200 hover:-translate-y-[1px] hover:border-[color:var(--color-border-brand-soft)] hover:text-foreground"
                 >
                   {Icon ? <Icon className="h-[15px] w-[15px]" /> : null}
                   <span>{social.label}</span>
                 </a>
               );
             })}
-          </div>
-
-          <div className="mt-[24px] flex items-end justify-between gap-[16px] rounded-[26px] border border-border bg-[var(--color-surface-glass-muted)] px-[18px] py-[16px]">
-            <div>
-              <div className="text-[12px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
-                Followers
-              </div>
-              <div className="mt-[8px] text-[28px] font-semibold tracking-[-0.05em] text-foreground">
-                {profile.followers}
-              </div>
-            </div>
-
-            <p className="m-0 max-w-[220px] text-right text-[13px] leading-[1.7] text-muted-foreground">
-              {profile.profileNote}
-            </p>
           </div>
         </div>
       </div>

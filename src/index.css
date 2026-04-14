@@ -20,7 +20,7 @@
   --secondary: oklch(0.967 0.001 286);
   --secondary-foreground: oklch(0.21 0.006 285);
   --muted: oklch(0.967 0.001 286);
-  --muted-foreground: oklch(0.554 0.046 257);
+  --muted-foreground: var(--color-text-secondary);
   --accent: oklch(0.967 0.001 286);
   --accent-foreground: oklch(0.21 0.006 285);
   --destructive: oklch(0.577 0.245 27.325);
@@ -60,6 +60,7 @@ body,
 body {
   min-width: 320px;
   background: var(--color-surface-canvas);
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -212,4 +213,82 @@ body {
 
 .animate-fifth {
   animation: gradient-move-circle 20s ease infinite;
+}
+
+@keyframes share-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes share-fade-up-soft {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes share-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes share-scale-in {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.share-load-in {
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: share-fade-up 680ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--share-delay, 0ms);
+}
+
+.share-load-in-soft {
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: share-fade-up-soft 560ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--share-delay, 0ms);
+}
+
+.share-dialog-backdrop {
+  opacity: 0;
+  animation: share-fade-in 220ms ease-out forwards;
+}
+
+.share-dialog-panel {
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: share-scale-in 320ms cubic-bezier(0.22, 1, 0.36, 1) 40ms forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .share-load-in,
+  .share-load-in-soft,
+  .share-dialog-backdrop,
+  .share-dialog-panel {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }

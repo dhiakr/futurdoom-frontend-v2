@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useEffectEvent, useMemo, useState } from "react";
 import { Link, useLocation } from "react-router";
 import {
   ArrowUp,
@@ -230,7 +230,7 @@ function AssistantMessage({ thoughtLabel, thought, content }) {
 
   return (
     <div className="w-full max-w-[760px]">
-      <div className="flex items-center gap-[8px] text-[13px] font-medium text-[var(--color-brand-accent-soft)]">
+      <div className="flex items-center gap-[8px] text-[13px] font-medium text-[var(--color-brand-tertiary)]">
         <MessageSquareText className="h-[14px] w-[14px]" />
         {thoughtLabel}
       </div>
@@ -309,7 +309,7 @@ function HistorySidebar({
             alt="QMee logo"
             className="h-[28px] w-[28px] rounded-full object-contain"
           />
-          <span className="text-[18px] font-semibold tracking-[-0.04em] text-[var(--color-brand-accent-soft)]">
+          <span className="text-[18px] font-semibold tracking-[-0.04em] text-[var(--color-brand-tertiary)]">
             QMee
           </span>
         </Link>
@@ -425,7 +425,7 @@ export default function ChatbotPage() {
     [chatSessions],
   );
 
-  useEffect(() => {
+  const syncSelectedChatId = useEffectEvent(() => {
     if (selectedChatId === null) {
       return;
     }
@@ -433,12 +433,20 @@ export default function ChatbotPage() {
     if (!chatSessions.some((item) => item.id === selectedChatId)) {
       setSelectedChatId(chatSessions[0]?.id ?? null);
     }
-  }, [chatSessions, selectedChatId]);
+  });
 
-  useEffect(() => {
+  const syncSharedThreadSelection = useEffectEvent(() => {
     if (sharedChatSession) {
       setSelectedChatId(sharedChatSession.id);
     }
+  });
+
+  useEffect(() => {
+    syncSelectedChatId();
+  }, [chatSessions, selectedChatId]);
+
+  useEffect(() => {
+    syncSharedThreadSelection();
   }, [sharedChatSession]);
 
   useEffect(() => {
@@ -552,7 +560,7 @@ export default function ChatbotPage() {
             ) : (
               <div className="flex min-h-[80svh] items-center justify-center xl:min-h-0 xl:h-full">
                 <div className="w-full max-w-[760px] text-center">
-                  <p className="text-[13px] font-medium uppercase tracking-[0.24em] text-[var(--color-brand-accent-soft)]">
+                  <p className="text-[13px] font-medium uppercase tracking-[0.24em] text-[var(--color-brand-tertiary)]">
                     QMee Workspace
                   </p>
                   <h1 className="mt-[14px] text-[44px] font-semibold tracking-[-0.05em] text-foreground max-[640px]:text-[34px]">

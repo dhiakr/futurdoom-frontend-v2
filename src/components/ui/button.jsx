@@ -5,18 +5,18 @@ import { Slot } from "@radix-ui/react-slot";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center gap-[8px] rounded-full border font-semibold whitespace-nowrap select-none outline-none transition-[transform,box-shadow,background-color,border-color,color,opacity] duration-200 ease-out focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring-brand)] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent disabled:pointer-events-none disabled:opacity-50 active:translate-y-px [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:transition-transform [&_svg]:duration-200 group-hover/button:[&_svg]:scale-105",
+  "group/button inline-flex shrink-0 items-center justify-center gap-[8px] rounded-full border font-semibold whitespace-nowrap select-none outline-none transition-[transform,box-shadow,background-color,border-color,color,opacity] duration-200 ease-out motion-reduce:transform-none motion-reduce:transition-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring-brand)] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent disabled:pointer-events-none disabled:opacity-50 active:translate-y-px [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:transition-transform [&_svg]:duration-200 group-hover/button:[&_svg]:scale-105",
   {
     variants: {
       variant: {
         default:
           "border-transparent bg-[var(--color-brand-primary)] text-[var(--color-text-on-brand)] shadow-[0_16px_36px_rgba(255,120,200,0.24)] hover:-translate-y-[1px] hover:bg-[var(--color-brand-primary-hover)] hover:shadow-[0_22px_42px_rgba(255,120,200,0.34)]",
         outline:
-          "border-border bg-[var(--color-surface-glass-muted)] text-muted-foreground shadow-[0_14px_28px_rgba(0,0,0,0.06)] hover:-translate-y-[1px] hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-fill-brand-soft)] hover:text-foreground",
+          "border-border bg-[var(--color-surface-glass-muted)] text-[var(--color-text-secondary)] shadow-[0_14px_28px_rgba(0,0,0,0.06)] hover:-translate-y-[1px] hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-fill-brand-soft)] hover:text-foreground",
         secondary:
-          "border-[color:var(--color-border-muted)] bg-[var(--color-surface-glass-subtle)] text-muted-foreground shadow-[0_12px_24px_rgba(0,0,0,0.05)] hover:-translate-y-[1px] hover:border-border hover:bg-[var(--color-surface-glass-strong)] hover:text-foreground",
+          "border-[color:var(--color-border-muted)] bg-[var(--color-surface-glass-subtle)] text-[var(--color-text-secondary)] shadow-[0_12px_24px_rgba(0,0,0,0.05)] hover:-translate-y-[1px] hover:border-border hover:bg-[var(--color-surface-glass-strong)] hover:text-foreground",
         ghost:
-          "border-transparent bg-transparent text-muted-foreground hover:-translate-y-[1px] hover:bg-[var(--color-surface-glass-muted)] hover:text-foreground",
+          "border-transparent bg-transparent text-[var(--color-text-secondary)] hover:-translate-y-[1px] hover:bg-[var(--color-surface-glass-muted)] hover:text-foreground",
         destructive:
           "border-transparent bg-[var(--color-danger)] text-white shadow-[0_14px_32px_rgba(255,107,138,0.24)] hover:-translate-y-[1px] hover:bg-[#ff86a0]",
         link: "border-transparent bg-transparent p-0 text-[var(--color-brand-primary)] hover:text-foreground",

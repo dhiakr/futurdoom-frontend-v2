@@ -29,6 +29,10 @@ export const BackgroundGradientAnimation = ({
   const animationFrameRef = useRef(null);
 
   const [isPointerActive, setIsPointerActive] = useState(false);
+  const [isSafari] = useState(() =>
+    typeof navigator !== "undefined" &&
+    /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+  );
 
   useEffect(() => {
     document.body.style.setProperty("--gradient-background-start", gradientBackgroundStart);
@@ -107,11 +111,6 @@ export const BackgroundGradientAnimation = ({
   const handlePointerLeave = () => {
     setIsPointerActive(false);
   };
-
-  const [isSafari, setIsSafari] = useState(false);
-  useEffect(() => {
-    setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
-  }, []);
 
   useEffect(() => {
     if (!interactive) {

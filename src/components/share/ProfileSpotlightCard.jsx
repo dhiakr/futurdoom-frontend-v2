@@ -1,24 +1,14 @@
 import {
   ArrowUpRight,
-  AtSign,
   BadgeCheck,
-  Globe,
-  Link2,
   MapPin,
-  Send,
 } from "lucide-react";
 import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import ProfilePreviewDialog from "./ProfilePreviewDialog";
 import ShareActionButton from "./ShareActionButton";
 import ShareAvatar from "./ShareAvatar";
-
-const socialIconMap = {
-  github: AtSign,
-  instagram: Send,
-  linkedin: Link2,
-  website: Globe,
-};
+import shareSocialIconMap from "./shareSocialIconMap";
 
 export default function ProfileSpotlightCard({ profile }) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -34,19 +24,26 @@ export default function ProfileSpotlightCard({ profile }) {
   return (
     <>
       <section
-        className="overflow-hidden rounded-[20px] bg-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.03)] backdrop-blur-[24px]"
+        className="share-load-in overflow-hidden rounded-[20px] border border-[color:var(--color-border-muted)] bg-[var(--color-surface-community-card-strong)] shadow-[0_18px_42px_rgba(40,8,26,0.08)] backdrop-blur-[24px]"
+        style={{ "--share-delay": "20ms" }}
       >
         <div
-          className="h-[148px] w-full bg-cover bg-center"
+          className="share-load-in-soft h-[148px] w-full bg-cover bg-center"
           style={{
+            "--share-delay": "80ms",
             backgroundImage: profile.coverImage
               ? `linear-gradient(180deg, rgb(0 0 0 / 0.08), rgb(0 0 0 / 0.42)), url(${profile.coverImage})`
               : "var(--gradient-profile-banner)",
           }}
         />
 
-        <div className="px-[28px] pb-[28px]">
-          <div className="-mt-[46px]">
+        <div
+          className="px-[28px] pb-[28px]"
+          style={{
+            "--share-delay": "130ms",
+          }}
+        >
+          <div className="share-load-in-soft -mt-[46px]">
             <ShareAvatar
               name={profile.name}
               initials={profile.initials}
@@ -58,27 +55,27 @@ export default function ProfileSpotlightCard({ profile }) {
             />
           </div>
 
-          <div className="mt-[16px]">
+          <div className="share-load-in-soft mt-[16px]" style={{ "--share-delay": "160ms" }}>
             <div className="flex flex-wrap items-center gap-[8px]">
               <h2 className="m-0 text-[26px] font-semibold tracking-[-0.05em] text-foreground">
                 {profile.name}
               </h2>
               {profile.verified ? (
-                <BadgeCheck className="h-[18px] w-[18px] text-[var(--color-brand-accent)]" />
+                <BadgeCheck className="h-[18px] w-[18px] text-[var(--color-brand-primary)]" />
               ) : null}
             </div>
 
             <div className="mt-[12px] flex items-center gap-[8px] text-[14px] text-muted-foreground">
-              <MapPin className="h-[15px] w-[15px] text-[var(--color-brand-accent-soft)]" />
+              <MapPin className="h-[15px] w-[15px] text-[var(--color-brand-primary)]" />
               {profile.location}
             </div>
 
-            <p className="m-0 mt-[8px] text-[15px] font-medium text-[var(--color-brand-accent-soft)]">
+            <p className="m-0 mt-[8px] text-[15px] font-medium text-[var(--color-brand-tertiary)]">
               {profile.profession}
             </p>
           </div>
 
-          <div className="mt-[18px]">
+          <div className="share-load-in-soft mt-[18px]" style={{ "--share-delay": "210ms" }}>
             <p
               className="m-0 text-[14px] leading-[1.8] text-muted-foreground"
               style={{
@@ -102,9 +99,12 @@ export default function ProfileSpotlightCard({ profile }) {
             </ShareActionButton>
           </div>
 
-          <div className="mt-[24px] flex flex-wrap items-center gap-[10px] border-t border-black/5 pt-[22px]">
+          <div
+            className="share-load-in-soft mt-[24px] flex flex-wrap items-center gap-[10px] border-t border-black/5 pt-[22px]"
+            style={{ "--share-delay": "260ms" }}
+          >
             {profile.socials.map((social) => {
-              const Icon = socialIconMap[social.platform];
+              const Icon = shareSocialIconMap[social.platform];
 
               return (
                 <a
@@ -121,7 +121,10 @@ export default function ProfileSpotlightCard({ profile }) {
             })}
           </div>
 
-          <div className="mt-[24px] flex items-end justify-between gap-[14px]">
+          <div
+            className="share-load-in-soft mt-[24px] flex items-end justify-between gap-[14px]"
+            style={{ "--share-delay": "310ms" }}
+          >
             <div>
               <p className="m-0 text-[12px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
                 Followers
@@ -143,7 +146,6 @@ export default function ProfileSpotlightCard({ profile }) {
 
       <ProfilePreviewDialog
         profile={profile}
-        socialIconMap={socialIconMap}
         open={isDialogOpen}
         onClose={() => setIsDialogOpen(false)}
       />

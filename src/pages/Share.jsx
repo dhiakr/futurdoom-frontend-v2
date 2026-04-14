@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { MessageSquareText } from "lucide-react";
 import DiscussionThreadCard from "@/components/share/DiscussionThreadCard";
+import ProfilePreviewDialog from "@/components/share/ProfilePreviewDialog";
 import ProfileSpotlightCard from "@/components/share/ProfileSpotlightCard";
 import {
   discussionThreads,
@@ -7,6 +9,14 @@ import {
 } from "@/components/share/shareData";
 
 export default function Share() {
+  const [selectedProfile, setSelectedProfile] = useState(null);
+  const totalConversations = discussionThreads.reduce(
+    (count, thread) =>
+      count +
+      thread.messages.filter((message) => message.authorType === "user").length,
+    0,
+  );
+
   return (
     <>
       <div
@@ -15,72 +25,91 @@ export default function Share() {
       >
         <div
           className="absolute inset-0"
-          style={{ background: "var(--gradient-share-overlay)" }}
-        />
-        <div
-          className="absolute left-1/2 top-[8%] h-[220px] w-[52%] -translate-x-1/2 rounded-[999px] blur-[100px]"
           style={{
             background:
-              "radial-gradient(circle, rgb(var(--color-brand-primary-rgb) / 0.2) 0%, transparent 72%)",
+              "linear-gradient(180deg, #fffdfd 0%, #fff7fb 30%, #fff0f7 100%)",
           }}
         />
         <div
-          className="absolute right-[10%] top-[24%] h-[240px] w-[240px] rounded-full blur-[110px]"
+          className="absolute left-[-8%] top-[8%] h-[260px] w-[260px] rounded-full"
           style={{
             background:
-              "radial-gradient(circle, rgb(var(--color-glow-info-rgb) / 0.16) 0%, transparent 72%)",
+              "radial-gradient(circle, rgb(var(--color-brand-primary-rgb) / 0.12) 0%, transparent 72%)",
           }}
         />
         <div
-          className="absolute left-[8%] top-[42%] h-[260px] w-[260px] rounded-full blur-[120px]"
+          className="absolute right-[-4%] top-[18%] h-[320px] w-[320px] rounded-full"
           style={{
             background:
-              "radial-gradient(circle, rgb(var(--color-brand-accent-rgb) / 0.12) 0%, transparent 72%)",
+              "radial-gradient(circle, rgb(var(--color-glow-info-rgb) / 0.08) 0%, transparent 74%)",
+          }}
+        />
+        <div
+          className="absolute bottom-[-10%] left-[28%] h-[280px] w-[280px] rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgb(var(--color-brand-accent-rgb) / 0.12) 0%, transparent 74%)",
           }}
         />
       </div>
 
-      <main className="relative z-10 px-[24px] pb-[72px] pt-[20px] max-[640px]:px-[16px] max-[640px]:pb-[48px]">
-        <section className="mx-auto w-full max-w-[1700px]">
-          <div className="grid gap-[24px] lg:grid-cols-[280px_minmax(0,1fr)_280px] xl:grid-cols-[300px_minmax(0,1fr)_300px]">
-            <aside className="relative z-20 lg:sticky lg:top-[118px] lg:self-start">
+      <main className="relative z-10 px-[20px] pb-[72px] pt-[24px] max-[640px]:px-[16px] max-[640px]:pb-[52px]">
+        <section className="mx-auto w-full max-w-[1460px]">
+          <div className="grid gap-[24px] lg:grid-cols-[320px_minmax(0,1fr)] xl:grid-cols-[340px_minmax(0,1fr)]">
+            <aside className="relative z-20 lg:sticky lg:top-[112px] lg:self-start">
               <ProfileSpotlightCard profile={featuredProfile} />
             </aside>
 
-            <div className="relative z-10 space-y-[18px]">
-              <div className="flex flex-wrap items-center justify-between gap-[12px] rounded-[20px] border border-[color:var(--color-border-brand-soft)] bg-[var(--color-fill-brand-soft)] px-[24px] py-[22px] shadow-[0_12px_32px_rgba(255,120,200,0.08)]">
-                <div className="flex flex-wrap items-center justify-between gap-[12px] w-full">
-                  <div className="flex items-center gap-[12px]">
-                    <span className="inline-flex h-[38px] w-[38px] items-center justify-center rounded-full border border-[color:var(--color-border-brand-subtle)] bg-white text-[var(--color-brand-primary-foreground-strong)] shadow-[0_8px_18px_rgba(255,120,200,0.08)]">
+            <div className="relative z-10 space-y-[24px]">
+              <header
+                className="share-load-in rounded-[24px] border border-[color:var(--color-border-muted)] bg-[var(--color-surface-base)] px-[18px] py-[16px] shadow-[0_14px_34px_rgba(49,12,34,0.05)] md:px-[22px]"
+                style={{ "--share-delay": "80ms" }}
+              >
+                <div className="flex flex-wrap items-center justify-between gap-[14px]">
+                  <div className="flex min-w-0 items-center gap-[12px]">
+                    <span className="inline-flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-full bg-[var(--color-fill-brand-faint)] text-[var(--color-brand-primary-foreground-strong)]">
                       <MessageSquareText className="h-[16px] w-[16px]" />
                     </span>
 
-                    <div>
-                      <p className="m-0 text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-primary-foreground-strong)] opacity-60">
-                        Community Threads
+                    <div className="min-w-0">
+                      <p className="m-0 text-[15px] font-semibold tracking-[-0.03em] text-foreground">
+                        Community feed
                       </p>
-                      <p className="m-0 mt-[4px] text-[15px] font-semibold text-[var(--color-brand-primary-foreground-strong)]">
-                        Public threads people can read, save, and continue in
-                        chat.
+                      <p className="m-0 mt-[3px] text-[13px] text-muted-foreground">
+                        Read shared prompts, AI replies, and continue in chat.
                       </p>
                     </div>
                   </div>
 
-                  <div className="rounded-full border border-[color:var(--color-border-brand-subtle)] bg-white/80 px-[12px] py-[8px] text-[12px] font-semibold text-[var(--color-brand-primary-foreground-strong)]">
-                    {discussionThreads.length} threads
+                  <div className="flex flex-wrap gap-[8px]">
+                    <div className="rounded-full border border-[color:var(--color-border-muted)] bg-[var(--color-surface-contrast-button)] px-[12px] py-[8px] text-[12px] font-medium text-foreground">
+                      {discussionThreads.length} threads
+                    </div>
+                    <div className="rounded-full border border-[color:var(--color-border-muted)] bg-white px-[12px] py-[8px] text-[12px] font-medium text-muted-foreground">
+                      {totalConversations} conversations
+                    </div>
                   </div>
                 </div>
-              </div>
+              </header>
 
-              {discussionThreads.map((thread) => (
-                <DiscussionThreadCard key={thread.id} thread={thread} />
+              {discussionThreads.map((thread, index) => (
+                <DiscussionThreadCard
+                  key={thread.id}
+                  thread={thread}
+                  onOpenProfile={setSelectedProfile}
+                  animationDelay={140 + index * 90}
+                />
               ))}
             </div>
-
-            <aside className="relative z-20 hidden lg:block lg:sticky lg:top-[118px] lg:self-start" />
           </div>
         </section>
       </main>
+
+      <ProfilePreviewDialog
+        profile={selectedProfile}
+        open={Boolean(selectedProfile)}
+        onClose={() => setSelectedProfile(null)}
+      />
     </>
   );
 }

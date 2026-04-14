@@ -1,5 +1,5 @@
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useEffectEvent, useState } from "react";
 import { Link, useLocation } from "react-router";
 
 const navItems = [
@@ -14,9 +14,6 @@ const navLinkClassName =
 
 const primaryCtaClassName =
   "inline-flex min-h-[48px] items-center justify-center rounded-full bg-[var(--color-brand-primary)] px-[24px] py-[12px] text-[15px] font-semibold text-[var(--color-text-on-brand)] no-underline shadow-[0_0_36px_rgba(255,120,200,0.28)] transition duration-200 hover:bg-[var(--color-brand-primary-hover)] hover:shadow-[0_0_48px_rgba(255,120,200,0.38)]";
-
-const secondaryCtaClassName =
-  "inline-flex min-h-[48px] items-center justify-center rounded-full border border-[color:var(--color-border-subtle)] bg-[var(--color-surface-glass-strong)] px-[22px] py-[12px] text-[15px] font-medium text-muted-foreground no-underline transition duration-200 hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-fill-brand-soft)] hover:text-foreground";
 
 const NAV_EXPANDED_MAX_WIDTH = 1340;
 const NAV_COMPACT_MAX_WIDTH = 1040;
@@ -34,9 +31,12 @@ export default function Navbar() {
   const location = useLocation();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const closeDrawer = useEffectEvent(() => {
+    setIsDrawerOpen(false);
+  });
 
   useEffect(() => {
-    setIsDrawerOpen(false);
+    closeDrawer();
   }, [location.pathname]);
 
   useEffect(() => {
