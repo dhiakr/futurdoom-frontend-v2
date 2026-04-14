@@ -80,7 +80,7 @@ const legalLinks = [
 export default function Footer() {
   return (
     <footer className="relative z-10 mt-auto px-[24px] pb-[24px] max-[640px]:px-[16px] max-[640px]:pb-[16px]">
-      <div className="relative mx-auto overflow-hidden rounded-[34px] border border-border bg-[var(--color-surface-community-card-strong)] px-[28px] py-[28px] shadow-[0_32px_100px_rgba(0,0,0,0.08)] backdrop-blur-[24px] max-[640px]:px-[20px] max-[640px]:py-[22px]">
+      <div className="relative mx-auto overflow-hidden rounded-[34px] border border-border bg-[var(--surface-card-strong)] px-[28px] py-[28px] shadow-[0_32px_100px_rgba(0,0,0,0.08)] backdrop-blur-[24px] max-[640px]:px-[20px] max-[640px]:py-[22px]">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-y-0 right-0 hidden w-full bg-[radial-gradient(circle_at_top_left,rgba(255,120,200,0.14),transparent_36%),repeating-linear-gradient(-32deg,transparent_0_28px,rgba(255,120,200,0.1)_28px_32px)] opacity-60 lg:block"

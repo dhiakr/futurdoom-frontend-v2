@@ -83,10 +83,10 @@ const starterPrompts = [
 ];
 
 const controlButtonClassName =
-  "inline-flex items-center justify-center rounded-full border border-[color:var(--color-border-muted)] bg-white/70 text-muted-foreground shadow-[0_10px_24px_rgba(53,14,36,0.06)] backdrop-blur-[18px] transition duration-200 hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-surface-contrast-button)] hover:text-foreground";
+  "inline-flex items-center justify-center rounded-full border border-[color:var(--border)] bg-white/70 text-muted-foreground shadow-[0_10px_24px_rgba(53,14,36,0.06)] backdrop-blur-[18px] transition duration-200 hover:border-[color:var(--border-brand)] hover:bg-[var(--contrast-button)] hover:text-foreground";
 
 const actionButtonClassName =
-  "inline-flex h-[32px] w-[32px] items-center justify-center rounded-full text-muted-foreground transition duration-200 hover:bg-[var(--color-fill-brand-soft)] hover:text-[var(--color-brand-primary-foreground-strong)]";
+  "inline-flex h-[32px] w-[32px] items-center justify-center rounded-full text-muted-foreground transition duration-200 hover:bg-[var(--fill-brand-soft)] hover:text-[var(--primary-fg-strong)]";
 
 function groupSessionsByDate(sessions) {
   return sessions.reduce(
@@ -141,7 +141,7 @@ function buildSharedChatSession(sharedThread) {
 function ThreadComposer({ placeholder }) {
   return (
     <div className="mx-auto w-full max-w-[780px]">
-      <div className="rounded-[22px] border border-[color:var(--color-border-brand-subtle)] bg-white/80 px-[14px] py-[12px] shadow-[0_24px_70px_rgba(53,14,36,0.12)] backdrop-blur-[24px] md:rounded-[26px] md:px-[18px] md:py-[14px]">
+      <div className="rounded-[22px] border border-[color:var(--border-brand-subtle)] bg-white/80 px-[14px] py-[12px] shadow-[0_24px_70px_rgba(53,14,36,0.12)] backdrop-blur-[24px] md:rounded-[26px] md:px-[18px] md:py-[14px]">
         <label
           htmlFor="chat-message"
           className="block text-[13px] font-medium text-muted-foreground"
@@ -160,7 +160,7 @@ function ThreadComposer({ placeholder }) {
           <div className="flex flex-wrap gap-[8px]">
             <button
               type="button"
-              className="inline-flex min-h-[30px] items-center justify-center gap-[7px] rounded-full border border-[color:var(--color-border-brand-soft)] bg-[var(--color-fill-brand-faint)] px-[12px] py-[6px] text-[13px] font-medium text-[var(--color-brand-primary-foreground-strong)] transition duration-200 hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-fill-brand-soft)]"
+              className="inline-flex min-h-[30px] items-center justify-center gap-[7px] rounded-full border border-[color:var(--border-brand-soft)] bg-[var(--fill-brand-faint)] px-[12px] py-[6px] text-[13px] font-medium text-[var(--primary-fg-strong)] transition duration-200 hover:border-[color:var(--border-brand)] hover:bg-[var(--fill-brand-soft)]"
             >
               <MessageSquareText className="h-[13px] w-[13px]" />
               Deep mode
@@ -168,7 +168,7 @@ function ThreadComposer({ placeholder }) {
 
             <button
               type="button"
-              className="inline-flex min-h-[30px] items-center justify-center gap-[7px] rounded-full border border-[color:var(--color-border-brand-soft)] bg-[var(--color-fill-brand-faint)] px-[12px] py-[6px] text-[13px] font-medium text-[var(--color-brand-primary-foreground-strong)] transition duration-200 hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-fill-brand-soft)]"
+              className="inline-flex min-h-[30px] items-center justify-center gap-[7px] rounded-full border border-[color:var(--border-brand-soft)] bg-[var(--fill-brand-faint)] px-[12px] py-[6px] text-[13px] font-medium text-[var(--primary-fg-strong)] transition duration-200 hover:border-[color:var(--border-brand)] hover:bg-[var(--fill-brand-soft)]"
             >
               <Search className="h-[13px] w-[13px]" />
               Search
@@ -186,7 +186,7 @@ function ThreadComposer({ placeholder }) {
 
             <button
               type="button"
-              className="inline-flex h-[36px] w-[36px] items-center justify-center rounded-full bg-[var(--color-brand-primary)] text-[var(--color-text-on-brand)] shadow-[0_14px_32px_rgba(255,120,200,0.26)] transition duration-200 hover:-translate-y-[1px] hover:bg-[var(--color-brand-primary-hover)] hover:shadow-[0_18px_36px_rgba(255,120,200,0.32)]"
+              className="inline-flex h-[36px] w-[36px] items-center justify-center rounded-full bg-[var(--primary)] text-[var(--text-on-primary)] shadow-[0_14px_32px_rgba(255,120,200,0.26)] transition duration-200 hover:-translate-y-[1px] hover:bg-[var(--primary-hover)] hover:shadow-[0_18px_36px_rgba(255,120,200,0.32)]"
               aria-label="Send message"
             >
               <ArrowUp className="h-[14px] w-[14px]" />
@@ -201,7 +201,7 @@ function ThreadComposer({ placeholder }) {
 function UserMessage({ content }) {
   return (
     <div className="ml-auto flex max-w-[420px] flex-col items-end">
-      <div className="rounded-[24px] border border-[color:var(--color-border-brand-subtle)] bg-[var(--color-surface-contrast-bubble)] px-[18px] py-[12px] text-[16px] font-medium text-foreground shadow-[0_14px_30px_rgba(255,120,200,0.08)] md:text-[17px]">
+      <div className="rounded-[24px] border border-[color:var(--border-brand-subtle)] bg-[var(--contrast-bubble)] px-[18px] py-[12px] text-[16px] font-medium text-foreground shadow-[0_14px_30px_rgba(255,120,200,0.08)] md:text-[17px]">
         {content}
       </div>
 
@@ -230,7 +230,7 @@ function AssistantMessage({ thoughtLabel, thought, content }) {
 
   return (
     <div className="w-full max-w-[760px]">
-      <div className="flex items-center gap-[8px] text-[13px] font-medium text-[var(--color-brand-tertiary)]">
+      <div className="flex items-center gap-[8px] text-[13px] font-medium text-[var(--tertiary)]">
         <MessageSquareText className="h-[14px] w-[14px]" />
         {thoughtLabel}
       </div>
@@ -309,7 +309,7 @@ function HistorySidebar({
             alt="QMee logo"
             className="h-[28px] w-[28px] rounded-full object-contain"
           />
-          <span className="text-[18px] font-semibold tracking-[-0.04em] text-[var(--color-brand-tertiary)]">
+          <span className="text-[18px] font-semibold tracking-[-0.04em] text-[var(--tertiary)]">
             QMee
           </span>
         </Link>
@@ -337,7 +337,7 @@ function HistorySidebar({
       <button
         type="button"
         onClick={onNewChat}
-        className="mt-[22px] inline-flex min-h-[42px] items-center justify-center gap-[8px] rounded-full border border-[color:var(--color-border-brand-soft)] bg-[var(--color-fill-brand-soft)] px-[16px] py-[10px] text-[15px] font-medium text-[var(--color-brand-primary-foreground-strong)] shadow-[0_14px_32px_rgba(255,120,200,0.08)] transition duration-200 hover:bg-[var(--color-fill-brand-muted)]"
+        className="mt-[22px] inline-flex min-h-[42px] items-center justify-center gap-[8px] rounded-full border border-[color:var(--border-brand-soft)] bg-[var(--fill-brand-soft)] px-[16px] py-[10px] text-[15px] font-medium text-[var(--primary-fg-strong)] shadow-[0_14px_32px_rgba(255,120,200,0.08)] transition duration-200 hover:bg-[var(--fill-brand-muted)]"
       >
         <PencilLine className="h-[15px] w-[15px]" />
         New chat
@@ -363,8 +363,8 @@ function HistorySidebar({
                       className={cn(
                         "flex w-full items-center justify-between rounded-[16px] px-[12px] py-[11px] text-left text-[15px] font-medium transition duration-200",
                         isSelected
-                          ? "bg-[var(--color-fill-brand-soft)] text-foreground"
-                          : "text-muted-foreground hover:bg-[var(--color-surface-contrast-muted)]",
+                          ? "bg-[var(--fill-brand-soft)] text-foreground"
+                          : "text-muted-foreground hover:bg-[var(--contrast-muted)]",
                       )}
                     >
                       <span className="truncate">{item.title}</span>
@@ -378,9 +378,9 @@ function HistorySidebar({
         )}
       </div>
 
-      <div className="mt-[18px] flex items-center justify-between gap-[10px] rounded-[18px] bg-[var(--color-surface-contrast-panel)] px-[10px] py-[10px]">
+      <div className="mt-[18px] flex items-center justify-between gap-[10px] rounded-[18px] bg-[var(--contrast-panel)] px-[10px] py-[10px]">
         <div className="flex min-w-0 items-center gap-[10px]">
-          <div className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-full bg-[var(--color-brand-primary)] text-[13px] font-semibold text-[var(--color-text-on-brand)]">
+          <div className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-full bg-[var(--primary)] text-[13px] font-semibold text-[var(--text-on-primary)]">
             Q
           </div>
           <div className="min-w-0">
@@ -478,7 +478,7 @@ export default function ChatbotPage() {
       style={{ background: "var(--gradient-chat-canvas)" }}
     >
       <div className="grid min-h-screen w-full xl:h-full xl:grid-cols-[260px_minmax(0,1fr)]">
-        <aside className="hidden border-r border-[color:var(--color-border-muted)] bg-[var(--color-surface-contrast-sidebar)] px-[14px] py-[18px] xl:flex xl:h-full xl:min-h-0 xl:flex-col">
+        <aside className="hidden border-r border-[color:var(--border)] bg-[var(--contrast-sidebar)] px-[14px] py-[18px] xl:flex xl:h-full xl:min-h-0 xl:flex-col">
           <HistorySidebar
             groupedSessions={groupedSessions}
             onNewChat={handleNewChat}
@@ -496,7 +496,7 @@ export default function ChatbotPage() {
               onClick={() => setIsHistoryOpen(false)}
             />
 
-            <div className="absolute left-0 top-0 h-full w-[min(300px,86vw)] border-r border-[color:var(--color-border-muted)] bg-[var(--color-surface-contrast-sidebar)] px-[14px] py-[18px] shadow-[20px_0_60px_rgba(0,0,0,0.36)]">
+            <div className="absolute left-0 top-0 h-full w-[min(300px,86vw)] border-r border-[color:var(--border)] bg-[var(--contrast-sidebar)] px-[14px] py-[18px] shadow-[20px_0_60px_rgba(0,0,0,0.36)]">
               <HistorySidebar
                 groupedSessions={groupedSessions}
                 onNewChat={handleNewChat}
@@ -560,7 +560,7 @@ export default function ChatbotPage() {
             ) : (
               <div className="flex min-h-[80svh] items-center justify-center xl:min-h-0 xl:h-full">
                 <div className="w-full max-w-[760px] text-center">
-                  <p className="text-[13px] font-medium uppercase tracking-[0.24em] text-[var(--color-brand-tertiary)]">
+                  <p className="text-[13px] font-medium uppercase tracking-[0.24em] text-[var(--tertiary)]">
                     QMee Workspace
                   </p>
                   <h1 className="mt-[14px] text-[44px] font-semibold tracking-[-0.05em] text-foreground max-[640px]:text-[34px]">
@@ -576,7 +576,7 @@ export default function ChatbotPage() {
                       <button
                         key={item}
                         type="button"
-                        className="inline-flex min-h-[38px] items-center justify-center rounded-full border border-[color:var(--color-border-subtle)] bg-[var(--color-surface-contrast-muted)] px-[14px] py-[8px] text-[14px] font-medium text-muted-foreground transition duration-200 hover:border-[color:var(--color-border-brand)] hover:text-foreground"
+                        className="inline-flex min-h-[38px] items-center justify-center rounded-full border border-[color:var(--border-subtle)] bg-[var(--contrast-muted)] px-[14px] py-[8px] text-[14px] font-medium text-muted-foreground transition duration-200 hover:border-[color:var(--border-brand)] hover:text-foreground"
                       >
                         {item}
                       </button>

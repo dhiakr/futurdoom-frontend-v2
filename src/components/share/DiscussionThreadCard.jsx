@@ -32,7 +32,7 @@ function MessageAuthor({ message, onOpenProfile }) {
           {hasProfile ? (
             <button
               type="button"
-              className="cursor-pointer rounded-[10px] p-0 text-left text-[15px] font-medium text-foreground transition duration-200 hover:text-[var(--color-brand-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring-brand)] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              className="cursor-pointer rounded-[10px] p-0 text-left text-[15px] font-medium text-foreground transition duration-200 hover:text-[var(--primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring-brand)] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
               onClick={() => onOpenProfile?.(message.profile)}
             >
               {message.name}
@@ -44,7 +44,7 @@ function MessageAuthor({ message, onOpenProfile }) {
           )}
 
           {message.profile?.verified ? (
-            <BadgeCheck className="h-[16px] w-[16px] text-[var(--color-brand-primary)]" />
+            <BadgeCheck className="h-[16px] w-[16px] text-[var(--primary)]" />
           ) : null}
 
           {message.profile?.handle ? (
@@ -71,7 +71,7 @@ function UserMessageCard({
 }) {
   return (
     <div
-      className="share-load-in-soft rounded-[28px] border border-[color:var(--color-border-muted)] bg-[rgba(255,255,255,0.88)] px-[22px] py-[20px] shadow-[0_8px_24px_rgba(17,24,39,0.04)]"
+      className="share-load-in-soft rounded-[28px] border border-[color:var(--border)] bg-[rgba(255,255,255,0.88)] px-[22px] py-[20px] shadow-[0_8px_24px_rgba(17,24,39,0.04)]"
       style={{ "--share-delay": `${delay}ms` }}
     >
       <MessageAuthor message={message} onOpenProfile={onOpenProfile} />
@@ -85,7 +85,7 @@ function UserMessageCard({
           {activity.map((item) => (
             <span
               key={item}
-              className="rounded-full border border-[color:var(--color-border-muted)] bg-white px-[12px] py-[8px]"
+              className="rounded-full border border-[color:var(--border)] bg-white px-[12px] py-[8px]"
             >
               {item}
             </span>
@@ -190,10 +190,10 @@ export default function DiscussionThreadCard({
   return (
     <article
       id={thread.id}
-      className="share-load-in overflow-hidden rounded-[34px] border border-[color:var(--color-border-muted)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(255,250,253,0.94))] shadow-[0_18px_46px_rgba(17,24,39,0.07)]"
+      className="share-load-in overflow-hidden rounded-[34px] border border-[color:var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(255,250,253,0.94))] shadow-[0_18px_46px_rgba(17,24,39,0.07)]"
       style={{
         "--thread-accent-rgb":
-          thread.theme?.accentRgb ?? "var(--color-brand-primary-rgb)",
+          thread.theme?.accentRgb ?? "var(--primary-rgb)",
         "--share-delay": `${animationDelay}ms`,
       }}
     >
@@ -204,10 +204,10 @@ export default function DiscussionThreadCard({
         <div className="flex flex-wrap items-start justify-between gap-[14px]">
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-[10px] text-[12px]">
-              <span className="rounded-full bg-[var(--color-fill-brand-faint)] px-[11px] py-[7px] font-medium uppercase tracking-[0.14em] text-[var(--color-brand-tertiary)]">
+              <span className="rounded-full bg-[var(--fill-brand-faint)] px-[11px] py-[7px] font-medium uppercase tracking-[0.14em] text-[var(--tertiary)]">
                 {thread.sectionLabel}
               </span>
-              <span className="rounded-full bg-[var(--color-surface-contrast-button)] px-[11px] py-[7px] font-medium text-muted-foreground">
+              <span className="rounded-full bg-[var(--contrast-button)] px-[11px] py-[7px] font-medium text-muted-foreground">
                 {thread.dateLabel}
               </span>
             </div>
@@ -217,22 +217,23 @@ export default function DiscussionThreadCard({
               style={{
                 fontFamily: 'Georgia, "Times New Roman", serif',
                 display: "-webkit-box",
+                lineHeight: "32px",
                 WebkitBoxOrient: "vertical",
                 WebkitLineClamp: 2,
                 overflow: "hidden",
               }}
             >
               {thread.title}
-            </h3>  
+            </h3>
           </div>
 
-          <div className="inline-flex items-center rounded-full bg-[var(--color-surface-contrast-button)] px-[14px] py-[9px] text-[12px] font-medium text-muted-foreground">
+          <div className="inline-flex items-center rounded-full bg-[var(--contrast-button)] px-[14px] py-[9px] text-[12px] font-medium text-muted-foreground">
             {messageLabel}
           </div>
         </div>
       </div>
 
-      <div className="border-t border-[color:var(--color-border-muted)] bg-[linear-gradient(180deg,rgba(255,255,255,0.45),rgba(255,252,254,0.9))] px-[20px] py-[22px] md:px-[26px]">
+      <div className="border-t border-[color:var(--border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.45),rgba(255,252,254,0.9))] px-[20px] py-[22px] md:px-[26px]">
         <div className="space-y-[16px]">
           {thread.messages.map((message, index) =>
             message.authorType === "ai" ? (
@@ -256,7 +257,7 @@ export default function DiscussionThreadCard({
       </div>
 
       <div
-        className="share-load-in-soft flex flex-col gap-[14px] border-t border-[color:var(--color-border-muted)] px-[24px] py-[20px] md:flex-row md:items-center md:justify-between md:px-[30px]"
+        className="share-load-in-soft flex flex-col gap-[14px] border-t border-[color:var(--border)] px-[24px] py-[20px] md:flex-row md:items-center md:justify-between md:px-[30px]"
         style={{ "--share-delay": `${animationDelay + 220}ms` }}
       >
         <div className="flex items-center gap-[10px] text-[13px] text-muted-foreground">
@@ -271,7 +272,7 @@ export default function DiscussionThreadCard({
           <Button
             type="button"
             variant="outline"
-            className="border-[color:var(--color-border-muted)] bg-white text-foreground shadow-none hover:bg-[var(--color-surface-contrast-button)]"
+            className="border-[color:var(--border)] bg-white text-foreground shadow-none hover:bg-[var(--contrast-button)]"
             onClick={handleShare}
           >
             <Share2 className="h-[15px] w-[15px]" />
@@ -280,7 +281,7 @@ export default function DiscussionThreadCard({
 
           <Button
             asChild
-            className="bg-[var(--color-brand-primary)] text-[13px] no-underline shadow-[0_16px_32px_rgba(255,120,200,0.22)] hover:bg-[var(--color-brand-primary-hover)]"
+            className="bg-[var(--primary)] text-[13px] no-underline shadow-[0_16px_32px_rgba(255,120,200,0.22)] hover:bg-[var(--primary-hover)]"
           >
             <Link to="/app" state={{ sharedThread: thread }}>
               Continue This Conversation

@@ -10,10 +10,10 @@ const navItems = [
 ];
 
 const navLinkClassName =
-  "inline-flex items-center justify-center rounded-full px-[18px] py-[10px] text-[12px] font-semibold uppercase tracking-[0.2em] text-muted-foreground transition duration-200 hover:bg-[var(--color-fill-brand-soft)] hover:text-foreground";
+  "inline-flex items-center justify-center rounded-full px-[18px] py-[10px] text-[12px] font-semibold uppercase tracking-[0.2em] text-muted-foreground transition duration-200 hover:bg-[var(--fill-brand-soft)] hover:text-foreground";
 
 const primaryCtaClassName =
-  "inline-flex min-h-[48px] items-center justify-center rounded-full bg-[var(--color-brand-primary)] px-[24px] py-[12px] text-[15px] font-semibold text-[var(--color-text-on-brand)] no-underline shadow-[0_0_36px_rgba(255,120,200,0.28)] transition duration-200 hover:bg-[var(--color-brand-primary-hover)] hover:shadow-[0_0_48px_rgba(255,120,200,0.38)]";
+  "inline-flex min-h-[48px] items-center justify-center rounded-full bg-[var(--primary)] px-[24px] py-[12px] text-[15px] font-semibold text-[var(--text-on-primary)] no-underline shadow-[0_0_36px_rgba(255,120,200,0.28)] transition duration-200 hover:bg-[var(--primary-hover)] hover:shadow-[0_0_48px_rgba(255,120,200,0.38)]";
 
 const NAV_EXPANDED_MAX_WIDTH = 1340;
 const NAV_COMPACT_MAX_WIDTH = 1040;
@@ -108,7 +108,7 @@ export default function Navbar() {
       NAV_COMPACT_MAX_WIDTH,
       scrollProgress,
     )}px`,
-    backgroundColor: `rgb(var(--color-overlay-brand-soft-rgb) / ${interpolate(
+    backgroundColor: `rgb(var(--overlay-soft-rgb) / ${interpolate(
       0.38,
       0,
       scrollProgress,
@@ -141,7 +141,7 @@ export default function Navbar() {
             to="/"
           >
             <span
-              className="inline-flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-full border border-[color:var(--color-border-brand-soft)] bg-[var(--color-fill-brand-muted)] shadow-[0_0_28px_rgba(255,120,200,0.18)] transition-transform duration-200 ease-out"
+              className="inline-flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-full border border-[color:var(--border-brand-soft)] bg-[var(--fill-brand-muted)] shadow-[0_0_28px_rgba(255,120,200,0.18)] transition-transform duration-200 ease-out"
               style={brandStyle}
             >
               <img
@@ -176,7 +176,7 @@ export default function Navbar() {
 
           <button
             type="button"
-            className="inline-flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-full border border-[color:var(--color-border-subtle)] bg-[var(--color-surface-glass-strong)] text-foreground transition duration-200 hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-fill-brand-soft)] lg:hidden"
+            className="inline-flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-full border border-[color:var(--border-subtle)] bg-[var(--glass-strong)] text-foreground transition duration-200 hover:border-[color:var(--border-brand)] hover:bg-[var(--fill-brand-soft)] lg:hidden"
             onClick={() => setIsDrawerOpen(true)}
             aria-label="Open navigation"
             aria-controls="mobile-navigation-drawer"
@@ -198,7 +198,7 @@ export default function Navbar() {
 
           <div
             id="mobile-navigation-drawer"
-            className="absolute right-[16px] top-[16px] flex w-[min(360px,calc(100%-32px))] flex-col gap-[18px] rounded-[32px] border border-[color:var(--color-border-subtle)] bg-[var(--color-surface-overlay-strong)] p-[18px] shadow-[0_32px_90px_rgba(0,0,0,0.52)] backdrop-blur-[26px]"
+            className="absolute right-[16px] top-[16px] flex w-[min(360px,calc(100%-32px))] flex-col gap-[18px] rounded-[32px] border border-[color:var(--border-subtle)] bg-[var(--bg-overlay-strong)] p-[18px] shadow-[0_32px_90px_rgba(0,0,0,0.52)] backdrop-blur-[26px]"
           >
             <div className="flex items-center justify-between gap-[12px]">
               <span className="text-[18px] font-semibold text-foreground">
@@ -207,7 +207,7 @@ export default function Navbar() {
 
               <button
                 type="button"
-                className="inline-flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full border border-[color:var(--color-border-subtle)] bg-[var(--color-surface-glass-strong)] text-foreground transition duration-200 hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-fill-brand-soft)]"
+                className="inline-flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full border border-[color:var(--border-subtle)] bg-[var(--glass-strong)] text-foreground transition duration-200 hover:border-[color:var(--border-brand)] hover:bg-[var(--fill-brand-soft)]"
                 onClick={() => setIsDrawerOpen(false)}
                 aria-label="Close navigation"
               >
@@ -220,7 +220,7 @@ export default function Navbar() {
                 <Link
                   key={item.to}
                   to={item.to}
-                  className="inline-flex items-center justify-center rounded-full border border-[color:var(--color-border-subtle)] bg-[var(--color-surface-glass-subtle)] px-[16px] py-[14px] text-[13px] font-semibold uppercase tracking-[0.18em] text-muted-foreground transition duration-200 hover:border-[color:var(--color-border-brand)] hover:bg-[var(--color-fill-brand-soft)] hover:text-foreground"
+                  className="inline-flex items-center justify-center rounded-full border border-[color:var(--border-subtle)] bg-[var(--glass-subtle)] px-[16px] py-[14px] text-[13px] font-semibold uppercase tracking-[0.18em] text-muted-foreground transition duration-200 hover:border-[color:var(--border-brand)] hover:bg-[var(--fill-brand-soft)] hover:text-foreground"
                   onClick={() => setIsDrawerOpen(false)}
                 >
                   {item.label}

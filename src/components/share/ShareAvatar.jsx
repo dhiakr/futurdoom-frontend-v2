@@ -44,14 +44,14 @@ export default function ShareAvatar({
         sizeClasses[size],
         shapeClasses[shape],
         isInteractive
-          ? "cursor-pointer transition duration-200 hover:-translate-y-[1px] hover:shadow-[0_22px_48px_rgba(0,0,0,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring-brand)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-base)]"
+          ? "cursor-pointer transition duration-200 hover:-translate-y-[1px] hover:shadow-[0_22px_48px_rgba(0,0,0,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring-brand)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-base)]"
           : null,
         className,
       )}
       style={{
         background:
           gradient ??
-          "linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-secondary))",
+          "linear-gradient(135deg, var(--primary), var(--secondary))",
       }}
     >
       <span className="sr-only">{ariaLabel ?? name}</span>

@@ -24,7 +24,7 @@ export default function ProfileSpotlightCard({ profile }) {
   return (
     <>
       <section
-        className="share-load-in overflow-hidden rounded-[20px] border border-[color:var(--color-border-muted)] bg-[var(--color-surface-community-card-strong)] shadow-[0_18px_42px_rgba(40,8,26,0.08)] backdrop-blur-[24px]"
+        className="share-load-in overflow-hidden rounded-[20px] border border-[color:var(--border)] bg-[var(--surface-card-strong)] shadow-[0_18px_42px_rgba(40,8,26,0.08)] backdrop-blur-[24px]"
         style={{ "--share-delay": "20ms" }}
       >
         <div
@@ -61,16 +61,16 @@ export default function ProfileSpotlightCard({ profile }) {
                 {profile.name}
               </h2>
               {profile.verified ? (
-                <BadgeCheck className="h-[18px] w-[18px] text-[var(--color-brand-primary)]" />
+                <BadgeCheck className="h-[18px] w-[18px] text-[var(--primary)]" />
               ) : null}
             </div>
 
             <div className="mt-[12px] flex items-center gap-[8px] text-[14px] text-muted-foreground">
-              <MapPin className="h-[15px] w-[15px] text-[var(--color-brand-primary)]" />
+              <MapPin className="h-[15px] w-[15px] text-[var(--primary)]" />
               {profile.location}
             </div>
 
-            <p className="m-0 mt-[8px] text-[15px] font-medium text-[var(--color-brand-tertiary)]">
+            <p className="m-0 mt-[8px] text-[15px] font-medium text-[var(--tertiary)]">
               {profile.profession}
             </p>
           </div>
@@ -113,7 +113,7 @@ export default function ProfileSpotlightCard({ profile }) {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={social.label}
-                  className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-full border border-border bg-[var(--color-surface-glass-muted)] text-muted-foreground transition duration-200 hover:-translate-y-[1px] hover:border-[color:var(--color-border-brand-soft)] hover:bg-[var(--color-fill-brand-soft)] hover:text-foreground"
+                  className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-full border border-border bg-[var(--glass-muted)] text-muted-foreground transition duration-200 hover:-translate-y-[1px] hover:border-[color:var(--border-brand-soft)] hover:bg-[var(--fill-brand-soft)] hover:text-foreground"
                 >
                   {Icon ? <Icon className="h-[15px] w-[15px]" /> : null}
                 </a>

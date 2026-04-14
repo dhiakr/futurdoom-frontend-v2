@@ -195,7 +195,7 @@ export const discussionThreads = [
   {
     id: "futurehub-positioning-thread",
     theme: {
-      accentRgb: "var(--color-brand-primary-rgb)",
+      accentRgb: "var(--primary-rgb)",
     },
     sectionLabel: "Share & Connect",
     dateLabel: "Feb 19, 2026",
@@ -241,7 +241,7 @@ export const discussionThreads = [
   {
     id: "code-preview-thread",
     theme: {
-      accentRgb: "var(--color-glow-info-rgb)",
+      accentRgb: "var(--glow-info-rgb)",
     },
     sectionLabel: "Community",
     dateLabel: "Mar 7, 2026",
@@ -298,7 +298,7 @@ function tokenizeLine(line) {
   {
     id: "micro-interactions-thread",
     theme: {
-      accentRgb: "var(--color-glow-warm-rgb)",
+      accentRgb: "var(--glow-warm-rgb)",
     },
     sectionLabel: "General Discussion",
     dateLabel: "Apr 11, 2026",

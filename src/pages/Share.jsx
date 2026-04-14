@@ -34,21 +34,21 @@ export default function Share() {
           className="absolute left-[-8%] top-[8%] h-[260px] w-[260px] rounded-full"
           style={{
             background:
-              "radial-gradient(circle, rgb(var(--color-brand-primary-rgb) / 0.12) 0%, transparent 72%)",
+              "radial-gradient(circle, rgb(var(--primary-rgb) / 0.12) 0%, transparent 72%)",
           }}
         />
         <div
           className="absolute right-[-4%] top-[18%] h-[320px] w-[320px] rounded-full"
           style={{
             background:
-              "radial-gradient(circle, rgb(var(--color-glow-info-rgb) / 0.08) 0%, transparent 74%)",
+              "radial-gradient(circle, rgb(var(--glow-info-rgb) / 0.08) 0%, transparent 74%)",
           }}
         />
         <div
           className="absolute bottom-[-10%] left-[28%] h-[280px] w-[280px] rounded-full"
           style={{
             background:
-              "radial-gradient(circle, rgb(var(--color-brand-accent-rgb) / 0.12) 0%, transparent 74%)",
+              "radial-gradient(circle, rgb(var(--accent-rgb) / 0.12) 0%, transparent 74%)",
           }}
         />
       </div>
@@ -62,12 +62,12 @@ export default function Share() {
 
             <div className="relative z-10 space-y-[24px]">
               <header
-                className="share-load-in rounded-[24px] border border-[color:var(--color-border-muted)] bg-[var(--color-surface-base)] px-[18px] py-[16px] shadow-[0_14px_34px_rgba(49,12,34,0.05)] md:px-[22px]"
+                className="share-load-in rounded-[24px] border border-[color:var(--border)] bg-[var(--bg-base)] px-[18px] py-[16px] shadow-[0_14px_34px_rgba(49,12,34,0.05)] md:px-[22px]"
                 style={{ "--share-delay": "80ms" }}
               >
                 <div className="flex flex-wrap items-center justify-between gap-[14px]">
                   <div className="flex min-w-0 items-center gap-[12px]">
-                    <span className="inline-flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-full bg-[var(--color-fill-brand-faint)] text-[var(--color-brand-primary-foreground-strong)]">
+                    <span className="inline-flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-full bg-[var(--fill-brand-faint)] text-[var(--primary-fg-strong)]">
                       <MessageSquareText className="h-[16px] w-[16px]" />
                     </span>
 
@@ -82,10 +82,10 @@ export default function Share() {
                   </div>
 
                   <div className="flex flex-wrap gap-[8px]">
-                    <div className="rounded-full border border-[color:var(--color-border-muted)] bg-[var(--color-surface-contrast-button)] px-[12px] py-[8px] text-[12px] font-medium text-foreground">
+                    <div className="rounded-full border border-[color:var(--border)] bg-[var(--contrast-button)] px-[12px] py-[8px] text-[12px] font-medium text-foreground">
                       {discussionThreads.length} threads
                     </div>
-                    <div className="rounded-full border border-[color:var(--color-border-muted)] bg-white px-[12px] py-[8px] text-[12px] font-medium text-muted-foreground">
+                    <div className="rounded-full border border-[color:var(--border)] bg-white px-[12px] py-[8px] text-[12px] font-medium text-muted-foreground">
                       {totalConversations} conversations
                     </div>
                   </div>

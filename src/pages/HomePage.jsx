@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 
 const primaryButtonClassName =
-  "inline-flex min-h-[56px] items-center justify-center gap-[10px] rounded-full bg-[var(--color-brand-primary)] px-[28px] py-[14px] text-[16px] font-semibold text-[var(--color-text-on-brand)] no-underline shadow-[0_0_42px_rgba(255,120,200,0.32)] transition duration-200 hover:bg-[var(--color-brand-primary-hover)] hover:shadow-[0_0_56px_rgba(255,120,200,0.42)]";
+  "inline-flex min-h-[56px] items-center justify-center gap-[10px] rounded-full bg-[var(--primary)] px-[28px] py-[14px] text-[16px] font-semibold text-[var(--text-on-primary)] no-underline shadow-[0_0_42px_rgba(255,120,200,0.32)] transition duration-200 hover:bg-[var(--primary-hover)] hover:shadow-[0_0_56px_rgba(255,120,200,0.42)]";
 
 export default function HomePage() {
   return (
@@ -12,14 +12,14 @@ export default function HomePage() {
         interactive
         className="hidden"
         containerClassName="fixed inset-0 z-0 min-h-0"
-        gradientBackgroundStart="var(--color-gradient-start)"
-        gradientBackgroundEnd="var(--color-gradient-end)"
-        firstColor="var(--color-brand-primary-rgb)"
-        secondColor="var(--color-brand-tertiary-rgb)"
-        thirdColor="var(--color-brand-accent-rgb)"
-        fourthColor="var(--color-brand-shadow-rgb)"
-        fifthColor="var(--color-brand-light-rgb)"
-        pointerColor="var(--color-brand-pointer-rgb)"
+        gradientBackgroundStart="var(--gradient-start)"
+        gradientBackgroundEnd="var(--gradient-end)"
+        firstColor="var(--primary-rgb)"
+        secondColor="var(--tertiary-rgb)"
+        thirdColor="var(--accent-rgb)"
+        fourthColor="var(--shadow-rgb)"
+        fifthColor="var(--light-rgb)"
+        pointerColor="var(--pointer-rgb)"
         blendingValue="screen"
         size="82%"
       />
@@ -36,21 +36,21 @@ export default function HomePage() {
           className="absolute left-1/2 top-[2%] h-[220px] w-[56%] -translate-x-1/2 rounded-[999px] blur-[80px]"
           style={{
             background:
-              "radial-gradient(circle, rgb(var(--color-glow-warm-rgb) / 0.3) 0%, rgb(var(--color-glow-warm-rgb) / 0.18) 32%, transparent 70%)",
+              "radial-gradient(circle, rgb(var(--glow-warm-rgb) / 0.3) 0%, rgb(var(--glow-warm-rgb) / 0.18) 32%, transparent 70%)",
           }}
         />
         <div
           className="absolute left-1/2 top-[18%] h-[420px] w-[70%] -translate-x-1/2 rounded-[50%] blur-[110px]"
           style={{
             background:
-              "radial-gradient(circle, rgb(var(--color-glow-cool-rgb) / 0.22) 0%, rgb(var(--color-glow-accent-rgb) / 0.18) 28%, transparent 72%)",
+              "radial-gradient(circle, rgb(var(--glow-cool-rgb) / 0.22) 0%, rgb(var(--glow-accent-rgb) / 0.18) 28%, transparent 72%)",
           }}
         />
         <div
           className="absolute left-1/2 top-[55%] h-[380px] w-[48%] -translate-x-1/2 rounded-[50%] blur-[120px]"
           style={{
             background:
-              "radial-gradient(circle, rgb(var(--color-brand-accent-rgb) / 0.2) 0%, rgb(var(--color-brand-primary-rgb) / 0.08) 42%, transparent 72%)",
+              "radial-gradient(circle, rgb(var(--accent-rgb) / 0.2) 0%, rgb(var(--primary-rgb) / 0.08) 42%, transparent 72%)",
           }}
         />
       </div>
@@ -60,7 +60,7 @@ export default function HomePage() {
           <div className="w-full text-center">
             <div className="mx-auto flex max-w-[320px] items-center justify-center gap-[18px] text-muted-foreground">
               <span className="h-px flex-1 bg-gradient-to-r from-transparent to-border" />
-              <span className="text-[28px] leading-none text-[var(--color-brand-primary)]">
+              <span className="text-[28px] leading-none text-[var(--primary)]">
                 QMee
               </span>
               <span className="h-px flex-1 bg-gradient-to-l from-transparent to-border" />

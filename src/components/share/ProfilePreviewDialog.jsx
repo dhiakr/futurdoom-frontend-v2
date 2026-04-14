@@ -49,13 +49,13 @@ export default function ProfilePreviewDialog({ profile, open, onClose }) {
         aria-modal="true"
         aria-labelledby={dialogTitleId}
         aria-describedby={dialogDescriptionId}
-        className="share-dialog-panel relative z-10 max-h-[calc(100vh-48px)] w-full max-w-[620px] overflow-y-auto overflow-x-hidden rounded-[34px] border border-[color:var(--color-border-muted)] bg-[var(--color-surface-base)] shadow-[0_34px_90px_rgba(40,8,26,0.18)]"
+        className="share-dialog-panel relative z-10 max-h-[calc(100vh-48px)] w-full max-w-[620px] overflow-y-auto overflow-x-hidden rounded-[34px] border border-[color:var(--border)] bg-[var(--bg-base)] shadow-[0_34px_90px_rgba(40,8,26,0.18)]"
       >
         <ShareActionButton
           icon={X}
           variant="ghost"
           size="sm"
-          className="absolute right-[20px] top-[20px] border border-[color:var(--color-border-muted)] bg-white text-foreground shadow-[0_14px_30px_rgba(0,0,0,0.08)] hover:bg-[var(--color-surface-contrast-button)]"
+          className="absolute right-[20px] top-[20px] border border-[color:var(--border)] bg-white text-foreground shadow-[0_14px_30px_rgba(0,0,0,0.08)] hover:bg-[var(--contrast-button)]"
           aria-label="Close profile dialog"
           onClick={onClose}
         />
@@ -95,7 +95,7 @@ export default function ProfilePreviewDialog({ profile, open, onClose }) {
                   {profile.name}
                 </h2>
                 {profile.verified ? (
-                  <BadgeCheck className="h-[20px] w-[20px] text-[var(--color-brand-primary)]" />
+                  <BadgeCheck className="h-[20px] w-[20px] text-[var(--primary)]" />
                 ) : null}
               </div>
 
@@ -103,7 +103,7 @@ export default function ProfilePreviewDialog({ profile, open, onClose }) {
                 {profile.handle}
               </p>
 
-              <div className="mt-[12px] inline-flex items-center gap-[8px] rounded-full bg-[var(--color-fill-brand-faint)] px-[12px] py-[8px] text-[13px] text-[var(--color-brand-primary-foreground-strong)]">
+              <div className="mt-[12px] inline-flex items-center gap-[8px] rounded-full bg-[var(--fill-brand-faint)] px-[12px] py-[8px] text-[13px] text-[var(--primary-fg-strong)]">
                 <MapPin className="h-[14px] w-[14px]" />
                 <span>{profile.location}</span>
               </div>
@@ -118,7 +118,7 @@ export default function ProfilePreviewDialog({ profile, open, onClose }) {
           </div>
 
           <p
-            className="share-load-in-soft m-0 mt-[16px] text-[15px] font-medium text-[var(--color-brand-tertiary)]"
+            className="share-load-in-soft m-0 mt-[16px] text-[15px] font-medium text-[var(--tertiary)]"
             style={{ "--share-delay": "200ms" }}
           >
             {profile.profession}
@@ -136,7 +136,7 @@ export default function ProfilePreviewDialog({ profile, open, onClose }) {
             className="share-load-in-soft mt-[24px] grid gap-[12px] sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]"
             style={{ "--share-delay": "260ms" }}
           >
-            <div className="rounded-[24px] border border-[color:var(--color-border-muted)] bg-[var(--color-fill-brand-faint)] px-[18px] py-[16px]">
+            <div className="rounded-[24px] border border-[color:var(--border)] bg-[var(--fill-brand-faint)] px-[18px] py-[16px]">
               <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                 Followers
               </div>
@@ -145,7 +145,7 @@ export default function ProfilePreviewDialog({ profile, open, onClose }) {
               </div>
             </div>
 
-            <div className="rounded-[24px] border border-[color:var(--color-border-muted)] bg-[var(--color-surface-contrast-button)] px-[18px] py-[16px]">
+            <div className="rounded-[24px] border border-[color:var(--border)] bg-[var(--contrast-button)] px-[18px] py-[16px]">
               <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                 Why Follow
               </div>
@@ -169,7 +169,7 @@ export default function ProfilePreviewDialog({ profile, open, onClose }) {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={social.label}
-                  className="inline-flex h-[44px] items-center gap-[10px] rounded-full border border-[color:var(--color-border-muted)] bg-[var(--color-surface-base)] px-[16px] text-[13px] font-medium text-muted-foreground no-underline shadow-[0_12px_26px_rgba(0,0,0,0.04)] transition duration-200 hover:-translate-y-[1px] hover:border-[color:var(--color-border-brand-soft)] hover:text-foreground"
+                  className="inline-flex h-[44px] items-center gap-[10px] rounded-full border border-[color:var(--border)] bg-[var(--bg-base)] px-[16px] text-[13px] font-medium text-muted-foreground no-underline shadow-[0_12px_26px_rgba(0,0,0,0.04)] transition duration-200 hover:-translate-y-[1px] hover:border-[color:var(--border-brand-soft)] hover:text-foreground"
                 >
                   {Icon ? <Icon className="h-[15px] w-[15px]" /> : null}
                   <span>{social.label}</span>
